@@ -1,0 +1,138 @@
+.signin-body, .signup-body {
+  background: linear-gradient(rgb(40, 52, 149), rgb(95, 40, 149)) 0% 0% / cover
+    no-repeat;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.signin-body-container, .signup-body-container {
+  display: flex;
+  flex-direction: "row";
+  padding: 5vh 5vw 5vh 5vw;
+}
+
+.signin-body-container .image-container,
+.signup-body-container .image-container {
+  width: 50vw;
+}
+
+.signin-body-container .image-container .image,
+.signup-body-container .image-container .image {
+  margin: 0;
+  padding: 20vh 0 0 5vw;
+  max-width: 80%;
+  height: auto;
+}
+
+.signin-body-container .form-container,
+.signup-body-container .form-container {
+  padding: 16px;
+  width: 40vw;
+  background-color: #f9f9fc;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.signin-body-container .form-container .form-heading,
+.signup-body-container .form-container .form-heading {
+  text-align: center;
+  padding: 5% 5%;
+  margin-bottom: 5%;
+  color: #666666;
+}
+
+@media screen and (max-width: 1000px) {
+  .signin-body-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .signup-body-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  .form-container {
+    width: 75vw !important;
+    text-align: center;
+  }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"]
+ {
+  width: 70%;
+  padding: 2% 3%;
+  margin: 2% 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+select{
+  width: 70%;
+  padding: 2% 3%;
+  margin: 2% 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input:focus,
+select:focus {
+  border: 1px solid #1670be;
+  box-shadow: 0 0 3px #1670be;
+  outline-offset: 0px;
+  outline: none;
+}
+
+input[type="checkbox"]
+ {
+  padding: 2% 0;
+  margin: 2% 2%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="checkbox"]:focus{
+  box-shadow: none;
+}
+
+select:invalid { color: gray; }
+
+.signin_button button,
+.signup_button button {
+  background-color: rgb(40, 52, 149);
+  color: white;
+  padding: 2% 3%;
+  margin: 8% 0;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  border-radius: 5px;
+}
+
+.signin_button button:hover,
+.signup_button button:hover {
+  opacity: 0.8;
+}
+
+.signup_link, .signin_link {
+  margin: 5px;
+}
+
+.signup_navlink, .signin_navlink {
+  font-weight: bold;
+  text-decoration: none;
+  color: rgb(95, 40, 149);
+}
+
+a{
+  font-weight: bold;
+  text-decoration: none;
+  color: #1890ff;
+}
