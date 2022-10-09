@@ -44,10 +44,31 @@ const Homepage = () => {
         </a>
         <a
           className="App-link"
+          href="/profile"
+          rel="noopener noreferrer"
+        >
+          Profile
+        </a>
+        <a
+          className="App-link"
+          href="/subscription"
+          rel="noopener noreferrer"
+        >
+          Subscription
+        </a>
+        <a
+          className="App-link"
           href="/collect"
           rel="noopener noreferrer"
         >
           Collect
+        </a>
+        <a
+          className="App-link"
+          href="/receipt"
+          rel="noopener noreferrer"
+        >
+          Receipt
         </a>
         <a
           className="App-link"

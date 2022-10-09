@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { message } from "antd";
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -15,7 +18,46 @@ const SignIn = () => {
     event.preventDefault();
 
     const { email, password } = values;
+    
+    const regex_email =
+      /^([a-z A-Z 0-9 \.-_]+)@([a-z A-Z 0-9 \.-_]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
+    
+    if (!regex_email.test(email)) {
+      message.warning("Please enter a valid email");
+      return;
+    }
 
+    if(!password.trim()){
+      message.warning("Please fill the entries properly");
+      return;
+    }
+
+    const res = await fetch("/api/users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+    
+    const data = await res.json();
+
+    if (!(data.flag)) {
+      message.error(data.error);
+      console.log(data.error);
+    } else {
+
+      localStorage.setItem("isLoggedIn", true);
+      localStorage.setItem("userDetails", data.body.userDetails);
+
+      message.success(data.message);
+      console.log(data.message);
+
+      navigate("/dashboard", { replace: true });
+    }
   };
 
   return (
