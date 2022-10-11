@@ -51,13 +51,6 @@ const Homepage = () => {
         </a>
         <a
           className="App-link"
-          href="/subscription"
-          rel="noopener noreferrer"
-        >
-          Subscription
-        </a>
-        <a
-          className="App-link"
           href="/collect"
           rel="noopener noreferrer"
         >
@@ -76,6 +69,13 @@ const Homepage = () => {
           rel="noopener noreferrer"
         >
           Invoices
+        </a>
+        <a
+          className="App-link"
+          href="/reports"
+          rel="noopener noreferrer"
+        >
+          Reports
         </a>
       </header>
 </div>
