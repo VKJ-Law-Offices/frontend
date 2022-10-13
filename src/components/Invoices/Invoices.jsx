@@ -23,6 +23,29 @@ const { Header, Sider, Content } = Layout;
 const { Search } = Input;
 const { Title } = Typography;
 
+
+const maincolumn = [
+  {
+    title: "Sales Amount",
+    dataIndex: "sales_amount"
+  },
+  {
+    title: "Total Sales",
+    dataIndex: "total_sales"
+  },
+  {
+    title: "Paid",
+    dataIndex: "paid"
+  }
+]
+
+const maindata = [
+  {
+    sales_amount: "Rs 20,000",
+    total_sales: "Rs 20,000",
+    paid: "Rs 10,000"
+  }
+]
 const columns = [
   {
     title: "DATE",
@@ -33,12 +56,20 @@ const columns = [
     },
   },
   {
-    title: "INV. NO.",
+    title: "SALES INVOICE NO.",
     dataIndex: "inv_no",
   },
   {
-    title: "CUSTOMER NAME",
+    title: "PARTY NAME",
     dataIndex: "customer_name",
+  },
+  {
+    title: "DUE IN",
+    dataIndex: "due_date",
+    sorter: {
+      compare: (a, b) => a.inv_no - b.inv_no,
+      multiple: 3,
+    },
   },
   {
     title: "AMOUNT",
@@ -49,64 +80,56 @@ const columns = [
     },
   },
   {
-    title: "DUE DATE",
-    dataIndex: "due_date",
-    sorter: {
-      compare: (a, b) => a.inv_no - b.inv_no,
-      multiple: 3,
-    },
+    title: "",
+    dataIndex: "button",
   },
-  {
-    title: "INVOICE TYPE",
-    dataIndex: "invoice_type",
-  },
-  {
-    title: "BALANCE DUE",
-    dataIndex: "balance_due",
-    sorter: {
-      compare: (a, b) => a.inv_no - b.inv_no,
-      multiple: 3,
-    },
-  },
-  {
-    title: "STATUS",
-    dataIndex: "status",
-    filters: [
-        {
-          text: 'Partially Paid',
-          value: 'Partially Paid',
-        },
-        {
-          text: 'Not Overdue',
-          value: 'Not Overdue',
-        },
-        {
-          text: 'Paid',
-          value: 'Paid',
-        },
-        {
-          text: 'Overdue',
-          value: 'Overdue',
-        },
-        {
-          text: 'Due Today',
-          value: 'Due Today',
-        },
-        {
-          text: 'Created Today',
-          value: 'Created Today',
-        },
-    ],
-    onFilter: (value, record) => record.name.indexOf(value) === 0,
-  },
-  {
-    title: "ACKNOWLEDGED",
-    dataIndex: "acknowledged",
-  },
-  {
-    title: "SEND INVOICE",
-    dataIndex: "send_invoice",
-  },
+  // {
+  //   title: "BALANCE DUE",
+  //   dataIndex: "balance_due",
+  //   sorter: {
+  //     compare: (a, b) => a.inv_no - b.inv_no,
+  //     multiple: 3,
+  //   },
+  // },
+  // {
+  //   title: "STATUS",
+  //   dataIndex: "status",
+  //   filters: [
+  //     {
+  //       text: 'Partially Paid',
+  //       value: 'Partially Paid',
+  //     },
+  //     {
+  //       text: 'Not Overdue',
+  //       value: 'Not Overdue',
+  //     },
+  //     {
+  //       text: 'Paid',
+  //       value: 'Paid',
+  //     },
+  //     {
+  //       text: 'Overdue',
+  //       value: 'Overdue',
+  //     },
+  //     {
+  //       text: 'Due Today',
+  //       value: 'Due Today',
+  //     },
+  //     {
+  //       text: 'Created Today',
+  //       value: 'Created Today',
+  //     },
+  //   ],
+  //   onFilter: (value, record) => record.name.indexOf(value) === 0,
+  // },
+  // {
+  //   title: "ACKNOWLEDGED",
+  //   dataIndex: "acknowledged",
+  // },
+  // {
+  //   title: "SEND INVOICE",
+  //   dataIndex: "send_invoice",
+  // },
 ];
 
 const data = [
@@ -122,6 +145,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
   {
     key: "2",
@@ -135,6 +159,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
   {
     key: "3",
@@ -148,6 +173,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
   {
     key: "4",
@@ -161,6 +187,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
   {
     key: "5",
@@ -174,6 +201,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
   {
     key: "6",
@@ -187,6 +215,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
   {
     key: "7",
@@ -200,6 +229,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
   {
     key: "8",
@@ -213,6 +243,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
   {
     key: "9",
@@ -226,6 +257,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
   {
     key: "10",
@@ -239,6 +271,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
   {
     key: "11",
@@ -252,6 +285,7 @@ const data = [
     status: 70,
     acknowledged: 70,
     send_invoice: 70,
+    button: "Unpaid"
   },
 ];
 
@@ -529,7 +563,7 @@ const Invoices = () => {
                   />
                 </NavLink>
                 <UserOutlined style={{ padding: "0 5px", fontSize: "175%" }} />
-                </span>
+              </span>
             </Header>
             <div
               style={{
@@ -537,7 +571,56 @@ const Invoices = () => {
                 paddingRight: "0%",
               }}
             >
-              <Row style={{ marginBottom: "1%" }}>
+              <Row>
+                <div style={{ width: "80%" }}>
+                  <div
+                    style={{
+                      display: "flex",
+
+                    }}
+                  >
+                    <div>
+                      <h2 style={{ fontSize: '25px', fontWeight: '900', marginTop: "10px" }}>Sales Invoices</h2>
+                      <h1 style={{ fontSize: '15px' , marginTop: "-8%"}}>Bill Your Sales to Customers</h1>
+                    </div>
+                    <div style={{
+                      display: "flex", width: "60px",
+                      marginLeft: "auto",
+                      marginRight: 0,
+                      marginTop: "32px"
+                    }}>
+                      <Button
+                        type="primary"
+                        style={{
+                          margin: "0 1vw",
+                          backgroundColor: "rgb(40, 52, 149)",
+                          border: "none",
+                        }}
+                      >
+                        Send Bulk Messages
+                      </Button>
+                      <Dropdown
+                        overlay={menu2}
+                        trigger={["click"]}
+                        style={{ border: "2px black" }}
+                        onClick={() => setDroppeddown2(!droppeddown2)}
+                      >
+                        <a onClick={(e) => e.preventDefault()}>
+                          <Space>
+                            <Button style={{ color: "rgb(22, 28, 75)" }}>
+                              Export
+                              <DownOutlined />
+                            </Button>
+                          </Space>
+                        </a>
+                      </Dropdown>
+                    </div>
+
+                  </div>
+                </div>
+              </Row>
+              <hr />
+              <Row style={{ marginBottom: "1%" , marginTop: "-3%"}}>
                 <div style={{ display: "flex" }}>
                   <Input
                     placeholder="Search by Debtor Name"
@@ -573,51 +656,17 @@ const Invoices = () => {
                   />
                 </div>
               </Row>
-              <Row>
-                <div style={{ width: "80%" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      width: "60px",
-                      marginBottom: "24px",
-                      marginLeft: "auto",
-                      marginRight: 0,
-                    }}
-                  >
-                    <Button
-                      type="primary"
-                      style={{
-                        margin: "0 1vw",
-                        backgroundColor: "rgb(40, 52, 149)",
-                        border: "none",
-                      }}
-                    >
-                      Send Bulk Messages
-                    </Button>
-                    <Dropdown
-                      overlay={menu2}
-                      trigger={["click"]}
-                      style={{ border: "2px black" }}
-                      onClick={() => setDroppeddown2(!droppeddown2)}
-                    >
-                      <a onClick={(e) => e.preventDefault()}>
-                        <Space>
-                          <Button style={{ color: "rgb(22, 28, 75)" }}>
-                            Export
-                            <DownOutlined />
-                          </Button>
-                        </Space>
-                      </a>
-                    </Dropdown>
-                  </div>
-                </div>
-              </Row>
-              <Row style={{ marginBottom: "1% 0" }}>
-                <Col span={16}>
-                <Button type="link" style={{fontSize:'large', fontWeight:'500', textDecoration:'underline'}}>INVOICES</Button>
-                </Col>
 
-              </Row>
+
+              <Table
+                style={{ marginLeft: "0%", marginRight: "70%", paddingBottom: "1%" }}
+                columns={maincolumn}
+                dataSource={maindata}
+                onChange={onChangeTableValues}
+                pagination={
+                  false
+                }
+              />
               <Table
                 style={{ marginRight: "2%" }}
                 columns={columns}
