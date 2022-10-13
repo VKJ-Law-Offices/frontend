@@ -33,7 +33,7 @@ const SignIn = () => {
     }
 
     const res = await fetch("/api/users/login", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
