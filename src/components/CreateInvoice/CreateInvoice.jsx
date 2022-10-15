@@ -208,7 +208,6 @@ const Invoices = () => {
               ]}
             />
           </Sider>
-
           <Layout
             className="site-layout"
             style={{
@@ -285,6 +284,7 @@ const Invoices = () => {
 
           </Layout>
         </Layout>
+        
       </div>
     </div>
   );
