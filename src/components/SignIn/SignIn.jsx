@@ -83,7 +83,9 @@ const SignIn = () => {
   const handleOk = async (event) => {
     event.preventDefault();
 
-    const { email, newPassword } = values2;
+    const { email } = values2;
+
+    const reason = "forgetPassword"
     
     const regex_email =
       /^([a-z A-Z 0-9 \.-_]+)@([a-z A-Z 0-9 \.-_]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
@@ -93,14 +95,14 @@ const SignIn = () => {
       return;
     }
 
-    const res = await fetch("/api/users/forget/password", {
+    const res = await fetch("/api/users/send/verificationlink", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email,
-        newPassword
+        reason
       }),
     });
     
