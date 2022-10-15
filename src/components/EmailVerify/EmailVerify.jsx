@@ -1,15 +1,22 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { NavLink, useParams } from "react-router-dom";
 import { message, Spin } from "antd";
+import { useQuery } from 'react-query'
+
+
 
 const EmailVerify = () => {
   const [loading, setLoading] = useState(true);
   const [validURL, setValidURL] = useState(false);
+  const [redirectTo, setredirectTo] = useState(null)
 
   const { userid, token } = useParams();
+  const params = new URLSearchParams(window.location.search);
+  const reason = params.get('reason');
 
+  // console.log("reason:", reason)
   const verifyEmailURL = async () => {
-    const url = `/api/users/verify/mailverification/${userid}/:${token}`;
+    const url = `/api/users/verify/mailverification`;
 
     const res = await fetch(url, {
       method: "PUT",
@@ -34,6 +41,7 @@ const EmailVerify = () => {
       }
     } else {
       setValidURL(true);
+      setredirectTo(reason);
       message.success(data.message);
       console.log(data.message);
     }
@@ -58,13 +66,26 @@ const EmailVerify = () => {
               <div>
                 <h1>Congrats! Your account has been verified...</h1>
                 <div class="signup_link" style={{ marginTop: "8%" }}>
-                  <NavLink
+                  {(redirectTo ==='signup' ) ? 
+                  (
+                    <NavLink
                     to="/signin"
                     variant="body2"
                     className="signin_navlink"
                   >
                     Proceed to SignIn
                   </NavLink>
+                  ): ( redirectTo === 'forgetPassword') ? 
+                  (
+                    <NavLink
+                    to="/signup"
+                    variant="body2"
+                    className="signin_navlink"
+                  >
+                    Proceed to reset password
+                  </NavLink>
+                  ): ( <div></div>)
+                  }
                 </div>
               </div>
             ) : (

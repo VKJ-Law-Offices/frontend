@@ -22,6 +22,8 @@ const SignUp = () => {
 
     const { name, email, phone, password, softwareName, isChecked } = values;
 
+    const reason = "signup"
+
     const regex_email =
       /^([a-z A-Z 0-9 \.-_]+)@([a-z A-Z 0-9 \.-_]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
 
@@ -69,15 +71,33 @@ const SignUp = () => {
       }
     } else {
       message.success(data.message);
-      message.success("Check your mail for verification link");
 
-      console.log(data.message);
-      console.log("Check your mail for verification link");
+      const res = await fetch("/api/users/send/verificationlink", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          reason
+        }),
+      });
+
+      const data2 = await res.json();
+      console.log(data2);
+
+      if(!data2.flag){
+        message.error("User dose not exist");
+      }else{
+        message.success(data2.message);
+        }
     }
   };  
   
   const handleResendMail = async() =>{
     const { email } = values;
+
+    const reason = "signup"
 
     const regex_email =
       /^([a-z A-Z 0-9 \.-]+)@([a-z A-Z 0-9 \.-]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
@@ -86,13 +106,14 @@ const SignUp = () => {
       message.warning("Please enter a valid email");
       return;
     }
-    const res = await fetch("/api/users/resend/verificationlink", {
+    const res = await fetch("/api/users/send/verificationlink", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         email,
+        reason
       }),
     });
 
@@ -100,18 +121,12 @@ const SignUp = () => {
     console.log(data);
 
     if (!data.flag) {
-      if (data.status === "OK") {
         message.error(data.message);
         console.log(data.message);
-      } else {
-        message.error("Invalid email");
-        console.log(data.error);
-      }
     } else {
       message.success(data.message);
       console.log(data.message);
     }
-
   }
 
   return (
