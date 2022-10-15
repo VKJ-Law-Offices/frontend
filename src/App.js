@@ -11,6 +11,7 @@ import SalesManagerReport from './components/Reports/SalesManagerReport/SalesMan
 import ProjectedCollections from './components/Reports/ProjectedCollections/ProjectedCollections';
 import Receipt from './components/Receipt/Receipt'
 import Invoices from './components/Invoices/Invoices'
+import E_Invoice from './components/E_Invoice/E_Invoice'
 import Settings from './components/Settings/Settings'
 import Profile from './components/Profile/Profile'
 import EmailVerify from './components/EmailVerify/EmailVerify'
@@ -33,6 +34,7 @@ function App() {
           <Route path="/receipt" element={<Receipt />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/invoices" element={<Invoices />} />
+          <Route path="/e-invoice" element={<E_Invoice />} />
           <Route path="/debtor_summary" element={<DebtorSummary />} />
           <Route path="/sales_manager_report" element={<SalesManagerReport />} />
           <Route path="/projected_collections" element={<ProjectedCollections />} />
