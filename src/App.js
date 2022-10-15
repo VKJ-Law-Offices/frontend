@@ -38,7 +38,7 @@ function App() {
           <Route path="/projected_collections" element={<ProjectedCollections />} />
           <Route path="/privacy_policy" element={<PrivacyPolicy />} />
           <Route path="/terms_and_conditions" element={<TermsAndConditions />} />
-          <Route path="/verify/mailverification/:userid/:token" element={<EmailVerify />} />
+          <Route path="/mailverification/:userid/:token" element={<EmailVerify />} />
           <Route path="*" element={ <Navigate to="/" /> } />
         </Routes>
       </Router>

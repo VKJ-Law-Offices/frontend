@@ -86,7 +86,7 @@ const SignUp = () => {
       message.warning("Please enter a valid email");
       return;
     }
-    const {res} = await fetch("/api/users/resend/verificationlink", {
+    const res = await fetch("/api/users/resend/verificationlink", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -95,6 +95,23 @@ const SignUp = () => {
         email,
       }),
     });
+
+    const data = await res.json();
+    console.log(data);
+
+    if (!data.flag) {
+      if (data.status === "OK") {
+        message.error(data.message);
+        console.log(data.message);
+      } else {
+        message.error("Invalid email");
+        console.log(data.error);
+      }
+    } else {
+      message.success(data.message);
+      console.log(data.message);
+    }
+
   }
 
   return (

@@ -1,54 +1,80 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { NavLink, useParams } from "react-router-dom";
-import { message, Button } from "antd";
+import { message, Spin } from "antd";
 
 const EmailVerify = () => {
+  const [loading, setLoading] = useState(true);
   const [validURL, setValidURL] = useState(false);
-  const param = useParams();
+
+  const { userid, token } = useParams();
+
+  const verifyEmailURL = async () => {
+    const url = `/api/users/verify/mailverification/${userid}/:${token}`;
+
+    const res = await fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userid,
+        token,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (!data.flag) {
+      if (data.status === "Error") {
+        message.error(data.message);
+        console.log(data.message);
+      } else {
+        message.error(data.error);
+        console.log(data.error);
+      }
+    } else {
+      setValidURL(true);
+      message.success(data.message);
+      console.log(data.message);
+    }
+  };
 
   useEffect(() => {
-    const verifyEmailURL = async () => {
-      try {
-        const url = `/api/users/verify/mailverification/${param.userid}/:${param.token}`;
-
-        const res = await fetch(url, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-
-        const data = await res.json();
-
-        if (!data.flag) {
-          message.error(data.error);
-          console.log(data.error);
-        } else {
-          setValidURL(true);
-          message.success(data.message);
-          console.log(data.message);
-        }
-      } catch (error) {
-        console.log(error);
-        setValidURL(false);
-      }
-    };
-  });
+    verifyEmailURL().then(()=>{
+      setLoading(false);
+    })
+  }, []);
 
   return (
     <Fragment>
-      <div style={{ textAlign: "center", margin: "5%" }}>
-        {validURL ? (
-          <div>
-            <h1>Congrats! Your account has been verified...</h1>
-            <div class="signup_link">
-              <NavLink to="/signin" variant="body2" className="signin_navlink">
-                Proceed to SignIn
-              </NavLink>
-            </div>
+      <div style={{ textAlign: "center" }}>
+        {loading ? (
+          <div style={{padding:"40vh 0"}}>
+            <Spin size="large"/>
           </div>
         ) : (
-          <h1>404 Not Found</h1>
+          <div style={{ fontSize: "150%", textAlign: "center", margin: "8%" }}>
+            {validURL ? (
+              <div>
+                <h1>Congrats! Your account has been verified...</h1>
+                <div class="signup_link" style={{ marginTop: "8%" }}>
+                  <NavLink
+                    to="/signin"
+                    variant="body2"
+                    className="signin_navlink"
+                  >
+                    Proceed to SignIn
+                  </NavLink>
+                </div>
+              </div>
+            ) : (
+              <h1
+                style={{ fontSize: "150%", textAlign: "center", margin: "8%" }}
+              >
+                Your account could not be verified!
+              </h1>
+            )}
+          </div>
         )}
       </div>
     </Fragment>
