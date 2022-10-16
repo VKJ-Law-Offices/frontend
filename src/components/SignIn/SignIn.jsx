@@ -7,19 +7,18 @@ const SignIn = () => {
   const navigate = useNavigate();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   const [values, setValues] = useState({
     email: "",
     password: "",
   });
-  
+
   const handleChangeValues = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-  
+
   const [values2, setValues2] = useState({
     email: "",
-    newPassword: "",
   });
 
   const handleChangeValues2 = (prop) => (event) => {
@@ -30,16 +29,16 @@ const SignIn = () => {
     event.preventDefault();
 
     const { email, password } = values;
-    
+
     const regex_email =
       /^([a-z A-Z 0-9 \.-_]+)@([a-z A-Z 0-9 \.-_]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
-    
+
     if (!regex_email.test(email)) {
       message.warning("Please enter a valid email");
       return;
     }
 
-    if(!password.trim()){
+    if (!password.trim()) {
       message.warning("Please fill the entries properly");
       return;
     }
@@ -54,14 +53,13 @@ const SignIn = () => {
         password,
       }),
     });
-    
+
     const data = await res.json();
 
-    if (!(data.flag)) {
+    if (!data.flag) {
       message.error(data.error);
       console.log(data.error);
     } else {
-
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem("userDetails", data.body.userDetails);
 
@@ -85,11 +83,11 @@ const SignIn = () => {
 
     const { email } = values2;
 
-    const reason = "forgetPassword"
-    
+    const reason = "forgetPassword";
+
     const regex_email =
       /^([a-z A-Z 0-9 \.-_]+)@([a-z A-Z 0-9 \.-_]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
-    
+
     if (!regex_email.test(email)) {
       message.warning("Please enter a valid email");
       return;
@@ -102,10 +100,10 @@ const SignIn = () => {
       },
       body: JSON.stringify({
         email,
-        reason
+        reason,
       }),
     });
-    
+
     const data = await res.json();
 
     if (!data.flag) {
@@ -119,12 +117,11 @@ const SignIn = () => {
     } else {
       message.success(data.message);
       console.log(data.message);
-      
+
       handleCancel();
-      
+
       values2.email = "";
-      values2.newPassword = "";
-      setValues2({...values2});
+      setValues2({ ...values2 });
     }
   };
 
@@ -161,50 +158,46 @@ const SignIn = () => {
           />
 
           <div style={{ margin: "5% 12% 0 1%", textAlign: "right" }}>
-            <Button type="link" style={{ fontWeight: "700" }}
-              onClick={()=>{
+            <Button
+              type="link"
+              style={{ fontWeight: "700" }}
+              onClick={() => {
                 showModal();
-              }}>
+              }}
+            >
               Forgot Password?
             </Button>
 
             <Modal
-                      title="Forgot Password"
-                      open={isModalOpen}
-                      onOk={handleOk}
-                      onCancel={handleCancel}
-                      okText="Reset Password"
-                      footer={[
-
-                        <div className="signin_button" style={{textAlign:'center'}}>
-                          <button type="submit" key="Reset Password" onClick={handleOk} style={{margin:0}}>
-                            Reset Password
-                          </button>
-                        </div>
-                      ]}
-                    >
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Email"
-                        value={values2.email}
-                        onChange={handleChangeValues2("email")}
-                        required
-                        style={{width:'100%'}}
-                      />
-                      
-                      <input
-                        type="password"
-                        id="newPassword"
-                        name="newPassword"
-                        placeholder="New Password"
-                        value={values2.newPassword}
-                        onChange={handleChangeValues2("newPassword")}
-                        required
-                        style={{width:'100%'}}
-                      />
-                    </Modal>
+              title="Forgot Password"
+              open={isModalOpen}
+              onOk={handleOk}
+              onCancel={handleCancel}
+              okText="Reset Password"
+              footer={[
+                <div className="signin_button" style={{ textAlign: "center" }}>
+                  <button
+                    type="submit"
+                    key="Reset Password"
+                    onClick={handleOk}
+                    style={{ margin: 0 }}
+                  >
+                    Reset Password
+                  </button>
+                </div>,
+              ]}
+            >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                value={values2.email}
+                onChange={handleChangeValues2("email")}
+                required
+                style={{ width: "100%" }}
+              />
+            </Modal>
           </div>
 
           <div class="signin_button">
