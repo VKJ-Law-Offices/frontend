@@ -1,75 +1,25 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FiSettings } from "react-icons/fi";
-import { AiOutlineArrowUp } from "react-icons/ai";
+import { message, Upload } from "antd";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
-  SearchOutlined,
   SettingOutlined,
+  EditOutlined
 } from "@ant-design/icons";
-import { Input, Radio, Pagination, Table, Divider } from "antd";
-import { Card, Button, Col, Row, Statistic } from "antd";
-import { Layout, Menu, Typography } from "antd";
+import { Card, Button, Col, Row, Input } from "antd";
+import { Switch, Layout, Menu, Typography } from "antd";
 import Icon, { DownOutlined, UpOutlined } from "@ant-design/icons";
-import { Dropdown, Space, Tag } from "antd";
+import { Dropdown, Space } from "antd";
 
 import "antd/dist/antd.css";
 import "../DashboardLayout/dashboard-layout.css";
-import background from "../../resources/search-icon-SBI-300266455-preview.jpg";
+import { NavLink } from "react-router-dom";
 
-const { Column, ColumnGroup } = Table;
 const { Header, Sider, Content } = Layout;
-const { Search } = Input;
 const { Title } = Typography;
-
-const data = [
-  {
-    key: "1",
-    date: "30-May-2022",
-    transaction_number: "GAG 72",
-    type: "Sales Invoice",
-    party_name: "ABC Ltd.",
-    amount: 799,
-    e_invoice_status: "Yet to be Pushed",
-    ack_no: "",
-    tags: ["Generate E-Invoice"],
-  },
-  {
-    key: "2",
-    date: "30-May-2022",
-    transaction_number: "GAG 71",
-    type: "Sales Invoice",
-    party_name: "ABC Ltd.",
-    amount: 897,
-    e_invoice_status: "Generated",
-    ack_no: "1422100090593",
-    tags: ["Download E-Invoice"],
-  },
-];
-
-const onChangeTableValues = (pagination, filters, sorter, extra) => {
-  console.log("params", pagination, filters, sorter, extra);
-};
-
-const onShowSizeChange = (current, pageSize) => {
-  console.log(current, pageSize);
-};
-
-const plainOptions = ["Detailed Summary", "Ageing Summary"];
-const options = [
-  {
-    label: "Detailed Summary",
-    value: "Detailed Summary",
-  },
-  {
-    label: "Ageing Summary",
-    value: "Ageing Summary",
-  },
-];
 
 const menu = (
   <Menu
@@ -87,12 +37,32 @@ const menu2 = (
   <Menu
     items={[
       {
-        label: <a href="/dashboard">PDF</a>,
+        label: <a href="/dashboard">15 Days</a>,
         key: "0",
       },
       {
-        label: <a href="/dashboard">Excel</a>,
+        label: <a href="/dashboard">30 Days</a>,
         key: "1",
+      },
+      {
+        label: <a href="/dashboard">45 Days</a>,
+        key: "2",
+      },
+      {
+        label: <a href="/dashboard">60 Days</a>,
+        key: "3",
+      },
+      {
+        label: <a href="/dashboard">75 Days</a>,
+        key: "4",
+      },
+      {
+        label: <a href="/dashboard">90 Days</a>,
+        key: "5",
+      },
+      {
+        label: <a href="/dashboard">120 Days</a>,
+        key: "6",
       },
     ]}
   />
@@ -158,9 +128,11 @@ const menu6 = (
   />
 );
 
-const onSearch = (value) => console.log(value);
+const onChange = (checked) => {
+    console.log(`switch to ${checked}`);
+  };
 
-const E_Invoices = () => {
+const CreditRatings = () => {
   const [collapsed, setCollapsed] = useState(true);
   const [droppeddown, setDroppeddown] = useState(false);
   const [droppeddown2, setDroppeddown2] = useState(false);
@@ -168,11 +140,46 @@ const E_Invoices = () => {
   const [droppeddown4, setDroppeddown4] = useState(false);
   const [droppeddown5, setDroppeddown5] = useState(false);
   const [droppeddown6, setDroppeddown6] = useState(false);
-  const [summaryValue, setSummaryValue] = useState("Detailed Summary");
 
-  const onChangeSummaryValue = ({ target: { value } }) => {
-    console.log("radio4 checked", value);
-    setSummaryValue(value);
+  const [fileList, setFileList] = useState([]);
+  const [uploading, setUploading] = useState(false);
+
+  const handleUpload = () => {
+    const formData = new FormData();
+    fileList.forEach((file) => {
+      formData.append("files[]", file);
+    });
+    setUploading(true); // You can use any AJAX library you like
+
+    fetch("https://www.mocky.io/v2/5cc8019d300000980a055e76", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setFileList([]);
+        message.success("upload successfully.");
+      })
+      .catch(() => {
+        message.error("upload failed.");
+      })
+      .finally(() => {
+        setUploading(false);
+      });
+  };
+
+  const props = {
+    onRemove: (file) => {
+      const index = fileList.indexOf(file);
+      const newFileList = fileList.slice();
+      newFileList.splice(index, 1);
+      setFileList(newFileList);
+    },
+    beforeUpload: (file) => {
+      setFileList([...fileList, file]);
+      return false;
+    },
+    fileList,
   };
 
   return (
@@ -258,7 +265,6 @@ const E_Invoices = () => {
             className="site-layout"
             style={{
               marginLeft: collapsed ? 80 : 200,
-              minHeight: "100vh",
             }}
           >
             <Header
@@ -337,141 +343,15 @@ const E_Invoices = () => {
             </Header>
             <div
               style={{
-                paddingLeft: "1%",
+                margin:"1% 5% 0 5%",
+                paddingLeft: "0%",
                 paddingRight: "0%",
+                minHeight: "100vh",
+                fontSize: "18px",
+                textAlign: "center"
               }}
             >
-              <Row>
-                <div style={{ width: "80%" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                    }}
-                  >
-                    <div>
-                      <h2
-                        style={{
-                          fontSize: "25px",
-                          fontWeight: "900",
-                          marginTop: "10px",
-                        }}
-                      >
-                        E - Invoicing
-                      </h2>
-                    </div>
-                    <div
-                      style={{
-                        display: "flex",
-                        width: "60px",
-                        marginLeft: "auto",
-                        marginRight: "70px",
-                        marginTop: "32px",
-                      }}
-                    >
-                      <Button
-                        type="primary"
-                        shape="round"
-                        style={{
-                          margin: "0 1vw",
-                          backgroundColor: "rgb(40, 52, 149)",
-                          border: "none",
-                        }}
-                      >
-                        <a style={{ color: "#ffffff" }}>
-                          Bulk Generate E-Invoices
-                        </a>
-                      </Button>
-                      <Button
-                        type="primary"
-                        style={{
-                          backgroundColor: "#d8d7df",
-                          color: "#000000",
-                          border: "none",
-                        }}
-                      >
-                        <a style={{ color: "#000000" }}>E-Invoice Settings</a>
-                        &nbsp;
-                        <FiSettings />
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              </Row>
-              <hr />
-              <Row style={{ marginBottom: "1%", marginTop: "-3%" }}>
-                <div style={{ display: "flex" }}>
-                  <Input
-                    placeholder="Search by Debtor Name"
-                    style={{
-                      margin: "5% 15px 0 0",
-                      width: "320px",
-                      height: "40px",
-                    }}
-                  />
-                  <Input
-                    placeholder="Filter via Invoice Date"
-                    style={{
-                      margin: "5% 15px 0 0",
-                      width: "280px",
-                      height: "40px",
-                    }}
-                  />
-                  <Input
-                    placeholder="Filter via Invoice Due Date"
-                    style={{
-                      margin: "5% 15px 0 0",
-                      width: "280px",
-                      height: "40px",
-                    }}
-                  />
-                  <Input
-                    placeholder="Filter via Tally Groups"
-                    style={{
-                      margin: "5% 15px 0 0",
-                      width: "220px",
-                      height: "40px",
-                    }}
-                  />
-                </div>
-              </Row>
-              <Table dataSource={data}>
-                <Column title="Date" dataIndex="date" key="date" />
-                <Column
-                  title="Transaction Number"
-                  dataIndex="transaction_number"
-                  key="transaction_number"
-                />
-                <Column title="Type" dataIndex="type" key="type" />
-                <Column
-                  title="Party Name"
-                  dataIndex="party_name"
-                  key="party_name"
-                />
-                <Column
-                  title="E-Invoice Status"
-                  dataIndex="e_invoice_status"
-                  key="e_invoice_status"
-                />
-                <Column title="Ack No." dataIndex="ack_no" key="ack_no" />
-                <Column
-                  title=""
-                  dataIndex="tags"
-                  key="tags"
-                  render={(tag) => (
-                    <>
-                      {tag == "Generate E-Invoice" ? (
-                        <Tag color="#108ee9" key={tag}>
-                          {tag}
-                        </Tag>
-                      ) : (
-                        <Tag color="blue" key={tag}>
-                          {tag}
-                        </Tag>
-                      )}
-                    </>
-                  )}
-                />
-              </Table>
+                <h1>This is Credit Ratings page.</h1>
             </div>
           </Layout>
         </Layout>
@@ -480,4 +360,4 @@ const E_Invoices = () => {
   );
 };
 
-export default E_Invoices;
+export default CreditRatings;

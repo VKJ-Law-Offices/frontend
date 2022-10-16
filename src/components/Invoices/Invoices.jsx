@@ -401,6 +401,7 @@ const Invoices = () => {
                 top: 0,
               }}
             >
+            <div style={{display:"flex", flexDirection:"row"}}>
               {React.createElement(
                 collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
                 {
@@ -408,7 +409,7 @@ const Invoices = () => {
                   onClick: () => setCollapsed(!collapsed),
                 }
               )}
-              <span>
+              <div>
                 <Dropdown
                   overlay={menu}
                   trigger={["click"]}
@@ -446,16 +447,23 @@ const Invoices = () => {
                 >
                   Get Payment Link
                 </Button>
-              </span>
+              </div>
 
-              <span>
+              <div style={{marginLeft: "auto",
+                      marginRight: "2%"}}>
+                <img src="https://app.credflow.in/imgs/userPermission.9e283aebf3c3255a5c0711a85d9ab00a.svg" alt=""
+                style={{ width:"30px", height:"auto", margin: "0 5px 10px 5px", fontSize: "175%" }}
+                />
                 <NavLink className="nav-link" to="/settings" variant="body2">
                   <SettingOutlined
                     style={{ padding: "0 5px", fontSize: "175%" }}
                   />
                 </NavLink>
-                <UserOutlined style={{ padding: "0 5px", fontSize: "175%" }} />
-              </span>
+                <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-person-user-19.png" alt=""
+                style={{ width:"30px", height:"auto", margin: "0 5px 10px 5px", fontSize: "175%" }}
+                />
+              </div>
+              </div>
             </Header>
             <div
               style={{

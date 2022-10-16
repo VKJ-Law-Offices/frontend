@@ -15,7 +15,7 @@ import { Input, Radio, Pagination, Table, Divider } from "antd";
 import { Card, Button, Col, Row, Statistic } from "antd";
 import { Layout, Menu, Typography } from "antd";
 import Icon, { DownOutlined, UpOutlined } from "@ant-design/icons";
-import { Dropdown, Space, Tag } from "antd";
+import { Dropdown, Space } from "antd";
 
 import "antd/dist/antd.css";
 import "../DashboardLayout/dashboard-layout.css";
@@ -26,29 +26,45 @@ const { Header, Sider, Content } = Layout;
 const { Search } = Input;
 const { Title } = Typography;
 
+const maincolumn = [
+  {
+    title: "All",
+    dataIndex: "all",
+  },
+  {
+    title: "To Collect",
+    dataIndex: "to_collect",
+  },
+  {
+    title: "To Pay",
+    dataIndex: "to_pay",
+  },
+];
+
+const maindata = [
+  {
+    to_collect: "Rs 20,000",
+    to_pay: "Rs 10,000",
+  },
+];
+
 const data = [
   {
     key: "1",
-    date: "30-May-2022",
-    transaction_number: "GAG 72",
-    type: "Sales Invoice",
-    party_name: "ABC Ltd.",
-    amount: 799,
-    e_invoice_status: "Yet to be Pushed",
-    ack_no: "",
-    tags: ["Generate E-Invoice"],
+    name: "ABC Pvt Ltd",
+    category: "--",
+    mobile_number: 7799988521,
+    party_type: "Customer",
+    balance: "Rs. 20,000"
   },
   {
     key: "2",
-    date: "30-May-2022",
-    transaction_number: "GAG 71",
-    type: "Sales Invoice",
-    party_name: "ABC Ltd.",
-    amount: 897,
-    e_invoice_status: "Generated",
-    ack_no: "1422100090593",
-    tags: ["Download E-Invoice"],
-  },
+    name: "XYZ Pvt Ltd",
+    category: "--",
+    mobile_number: 7123988521,
+    party_type: "Customer",
+    balance: "Rs. 10,500"
+  }
 ];
 
 const onChangeTableValues = (pagination, filters, sorter, extra) => {
@@ -160,7 +176,7 @@ const menu6 = (
 
 const onSearch = (value) => console.log(value);
 
-const E_Invoices = () => {
+const Parties = () => {
   const [collapsed, setCollapsed] = useState(true);
   const [droppeddown, setDroppeddown] = useState(false);
   const [droppeddown2, setDroppeddown2] = useState(false);
@@ -353,10 +369,10 @@ const E_Invoices = () => {
                         style={{
                           fontSize: "25px",
                           fontWeight: "900",
-                          marginTop: "10px",
+                          marginTop: "32px",
                         }}
                       >
-                        E - Invoicing
+                        Parties
                       </h2>
                     </div>
                     <div
@@ -364,34 +380,43 @@ const E_Invoices = () => {
                         display: "flex",
                         width: "60px",
                         marginLeft: "auto",
-                        marginRight: "70px",
+                        marginRight: "200px",
                         marginTop: "32px",
                       }}
                     >
                       <Button
                         type="primary"
-                        shape="round"
+                        style={{
+                          margin: "0 1vw",
+                          backgroundColor: "#d8d7df",
+                          color: "#000000",
+                          border: "none",
+                        }}
+                      >
+                        <a style={{ color: "#000000" }}>Parties Settings</a>
+                        &nbsp;
+                        <FiSettings />
+                      </Button>
+                      <Button
+                        type="primary"
                         style={{
                           margin: "0 1vw",
                           backgroundColor: "rgb(40, 52, 149)",
                           border: "none",
                         }}
                       >
-                        <a style={{ color: "#ffffff" }}>
-                          Bulk Generate E-Invoices
-                        </a>
+                        Bulk Import Parties
                       </Button>
                       <Button
                         type="primary"
                         style={{
-                          backgroundColor: "#d8d7df",
-                          color: "#000000",
+                          margin: "0 1vw",
+                          backgroundColor: "rgb(40, 52, 149)",
                           border: "none",
                         }}
                       >
-                        <a style={{ color: "#000000" }}>E-Invoice Settings</a>
-                        &nbsp;
-                        <FiSettings />
+                        <AiOutlineArrowUp />
+                        &nbsp;<a style={{ color: "#ffffff" }}>Create Party</a>
                       </Button>
                     </div>
                   </div>
@@ -434,43 +459,31 @@ const E_Invoices = () => {
                   />
                 </div>
               </Row>
+              <Table
+                style={{
+                  marginLeft: "0%",
+                  marginRight: "70%",
+                  paddingBottom: "1%",
+                }}
+                columns={maincolumn}
+                dataSource={maindata}
+                onChange={onChangeTableValues}
+                pagination={false}
+              />
               <Table dataSource={data}>
-                <Column title="Date" dataIndex="date" key="date" />
+                <Column title="Name" dataIndex="name" key="name" />
+                <Column title="Category" dataIndex="category" key="category" />
                 <Column
-                  title="Transaction Number"
-                  dataIndex="transaction_number"
-                  key="transaction_number"
-                />
-                <Column title="Type" dataIndex="type" key="type" />
-                <Column
-                  title="Party Name"
-                  dataIndex="party_name"
-                  key="party_name"
+                  title="Mobile Number"
+                  dataIndex="mobile_number"
+                  key="mobile_number"
                 />
                 <Column
-                  title="E-Invoice Status"
-                  dataIndex="e_invoice_status"
-                  key="e_invoice_status"
+                  title="Party Type"
+                  dataIndex="party_type"
+                  key="party_type"
                 />
-                <Column title="Ack No." dataIndex="ack_no" key="ack_no" />
-                <Column
-                  title=""
-                  dataIndex="tags"
-                  key="tags"
-                  render={(tag) => (
-                    <>
-                      {tag == "Generate E-Invoice" ? (
-                        <Tag color="#108ee9" key={tag}>
-                          {tag}
-                        </Tag>
-                      ) : (
-                        <Tag color="blue" key={tag}>
-                          {tag}
-                        </Tag>
-                      )}
-                    </>
-                  )}
-                />
+                <Column title="Balance" dataIndex="balance" key="balance"/>
               </Table>
             </div>
           </Layout>
@@ -480,4 +493,4 @@ const E_Invoices = () => {
   );
 };
 
-export default E_Invoices;
+export default Parties;

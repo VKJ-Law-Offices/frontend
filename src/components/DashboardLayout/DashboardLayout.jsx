@@ -63,62 +63,80 @@ const DashboardLayout = () => {
           />
         </Sider>
         <Layout className="site-layout">
-          <Header
-            className="site-layout-background"
-            
-          >
-            {React.createElement(
-              collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-              {
-                className: "trigger",
-                onClick: () => setCollapsed(!collapsed),
-              }
-            )}
-
-            <Dropdown
-              overlay={menu}
-              trigger={["click"]}
-              style={{ border: "2px black" }}
-              onClick={() => setDroppeddown(!droppeddown)}
-            >
-              <a onClick={(e) => e.preventDefault()}>
-                <Space>
-                  <Button
-                    style={{ color: "rgb(22, 28, 75)", fontWeight: "bold" }}
-                  >
-                    A TO Z MONEY RECOVERY AND CREDIT PVT LTD
-                    
-                    {droppeddown ? <UpOutlined /> : <DownOutlined />}
-
-                  </Button>
-                </Space>
-              </a>
-            </Dropdown>
-
-            <Button
-              type="primary"
-              shape="round"
+        <Header
+              className="site-layout-background-header"
               style={{
-                margin: "0.5vw",
-                backgroundColor: "rgb(40, 52, 149)",
-                border: "none",
+                position: "sticky",
+                zIndex: 1,
+                width: "100%",
+                height: "auto",
+                top: 0,
               }}
             >
-              Set Contact Details
-            </Button>
+            <div style={{display:"flex", flexDirection:"row"}}>
+              {React.createElement(
+                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+                {
+                  className: "trigger",
+                  onClick: () => setCollapsed(!collapsed),
+                }
+              )}
+              <div>
+                <Dropdown
+                  overlay={menu}
+                  trigger={["click"]}
+                  style={{ border: "2px black" }}
+                  onClick={() => setDroppeddown(!droppeddown)}
+                >
+                  <a onClick={(e) => e.preventDefault()}>
+                    <Space>
+                      <Button
+                        style={{ color: "rgb(22, 28, 75)", fontWeight: "bold" }}
+                      >
+                        A TO Z MONEY RECOVERY AND CREDIT PVT LTD
+                        {droppeddown ? <UpOutlined /> : <DownOutlined />}
+                      </Button>
+                    </Space>
+                  </a>
+                </Dropdown>
 
-            <Button
-              type="primary"
-              shape="round"
-              style={{ margin: "0.5vw" }}
-            >
-              Get Payment Link
-            </Button>
+                <Button
+                  type="primary"
+                  shape="round"
+                  style={{
+                    margin: "0.5vw",
+                    backgroundColor: "rgb(40, 52, 149)",
+                    border: "none",
+                  }}
+                >
+                  Set Contact Details
+                </Button>
 
+                <Button
+                  type="primary"
+                  shape="round"
+                  style={{ margin: "0.5vw" }}
+                >
+                  Get Payment Link
+                </Button>
+              </div>
 
-
-
-          </Header>
+              <div style={{marginLeft: "auto",
+                      marginRight: "2%"}}>
+                <img src="https://app.credflow.in/imgs/userPermission.9e283aebf3c3255a5c0711a85d9ab00a.svg" alt=""
+                style={{ width:"30px", height:"auto", margin: "0 5px 10px 5px", fontSize: "175%" }}
+                />
+                <NavLink className="nav-link" to="/settings" variant="body2">
+                  <SettingOutlined
+                    style={{ padding: "0 5px", fontSize: "175%" }}
+                  />
+                </NavLink>
+                <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-person-user-19.png" alt=""
+                style={{ width:"30px", height:"auto", margin: "0 5px 10px 5px", fontSize: "175%" }}
+                />
+              </div>
+              </div>
+            </Header>
           <Content
             className="site-layout-background"
             style={{

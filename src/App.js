@@ -11,9 +11,15 @@ import SalesManagerReport from './components/Reports/SalesManagerReport/SalesMan
 import ProjectedCollections from './components/Reports/ProjectedCollections/ProjectedCollections';
 import Receipt from './components/Receipt/Receipt'
 import Invoices from './components/Invoices/Invoices'
+import ROI_Calculator from './components/ROI_Calculator/ROI_Calculator'
+import InstantInvoiceLoans from './components/InstantInvoiceLoans/InstantInvoiceLoans'
+import StartRecoveryProceedings from './components/StartRecoveryProceedings/StartRecoveryProceedings'
+import CreditRatings from './components/CreditRatings/CreditRatings'
+import ReferAFriend from './components/ReferAFriend/ReferAFriend'
 import E_Invoice from './components/E_Invoice/E_Invoice'
 import Settings from './components/Settings/Settings'
 import Profile from './components/Profile/Profile'
+import Parties from './components/Parties/Parties'
 import EmailVerify from './components/EmailVerify/EmailVerify'
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy'
 import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions'
@@ -28,6 +34,7 @@ function App() {
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/parties" element={<Parties />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/collect" element={<Collect />} />
@@ -38,6 +45,11 @@ function App() {
           <Route path="/debtor_summary" element={<DebtorSummary />} />
           <Route path="/sales_manager_report" element={<SalesManagerReport />} />
           <Route path="/projected_collections" element={<ProjectedCollections />} />
+          <Route path="/roi-calculator" element={<ROI_Calculator />} />
+          <Route path="/instant-invoice-loans" element={<InstantInvoiceLoans />} />
+          <Route path="/start-recovery-proceedings" element={<StartRecoveryProceedings />} />
+          <Route path="/credit-ratings" element={<CreditRatings />} />
+          <Route path="/refer-a-friend" element={<ReferAFriend />} />
           <Route path="/privacy_policy" element={<PrivacyPolicy />} />
           <Route path="/terms_and_conditions" element={<TermsAndConditions />} />
           <Route path="/mailverification/:userid/:token" element={<EmailVerify />} />
