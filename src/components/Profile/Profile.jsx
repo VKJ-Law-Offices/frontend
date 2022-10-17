@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { message, Upload } from "antd";
 import {
   MenuFoldOutlined,
@@ -9,17 +9,15 @@ import {
   SettingOutlined,
   EditOutlined
 } from "@ant-design/icons";
-import { Card, Button, Col, Row, Input } from "antd";
-import { Switch, Layout, Menu, Typography } from "antd";
+import { Layout, Menu, Button, Dropdown, Space } from "antd";
 import Icon, { DownOutlined, UpOutlined } from "@ant-design/icons";
-import { Dropdown, Space } from "antd";
+import {  } from "antd";
 
 import "antd/dist/antd.css";
 import "../DashboardLayout/dashboard-layout.css";
 import { NavLink } from "react-router-dom";
 
-const { Header, Sider, Content } = Layout;
-const { Title } = Typography;
+const { Header, Sider } = Layout;
 
 const menu = (
   <Menu
@@ -49,61 +47,19 @@ const userMenu = (
   />
 );
 
-const onChange = (checked) => {
-    console.log(`switch to ${checked}`);
-  };
-
 const Profile = () => {
   const [collapsed, setCollapsed] = useState(true);
   const [droppeddown, setDroppeddown] = useState(false);
-  const [droppeddown2, setDroppeddown2] = useState(false);
-  const [droppeddown3, setDroppeddown3] = useState(false);
-  const [droppeddown4, setDroppeddown4] = useState(false);
-  const [droppeddown5, setDroppeddown5] = useState(false);
-  const [droppeddown6, setDroppeddown6] = useState(false);
+  const [userDetails, setUserDetails] = useState({});
 
-  const [fileList, setFileList] = useState([]);
-  const [uploading, setUploading] = useState(false);
-
-  const handleUpload = () => {
-    const formData = new FormData();
-    fileList.forEach((file) => {
-      formData.append("files[]", file);
-    });
-    setUploading(true); // You can use any AJAX library you like
-
-    fetch("https://www.mocky.io/v2/5cc8019d300000980a055e76", {
-      method: "POST",
-      body: formData,
-    })
-      .then((res) => res.json())
-      .then(() => {
-        setFileList([]);
-        message.success("upload successfully.");
-      })
-      .catch(() => {
-        message.error("upload failed.");
-      })
-      .finally(() => {
-        setUploading(false);
-      });
-  };
-
-  const props = {
-    onRemove: (file) => {
-      const index = fileList.indexOf(file);
-      const newFileList = fileList.slice();
-      newFileList.splice(index, 1);
-      setFileList(newFileList);
-    },
-    beforeUpload: (file) => {
-      setFileList([...fileList, file]);
-      return false;
-    },
-    fileList,
-  };
+  useEffect(()=>{
+    if(localStorage.getItem("isLoggedIn")){
+      setUserDetails(JSON.parse(localStorage.getItem("userDetails")));
+    }
+  },[])
 
   return (
+
     <div>
       <div class="components-layout-demo-custom-trigger">
         <Layout>
@@ -315,7 +271,8 @@ const Profile = () => {
                                 Name:
                             </h1>
                             <p style={{width:"400px"}}>
-                                A to Z Money Recovery And Credit Pvt Ltd
+                                {/* A to Z Money Recovery And Credit Pvt Ltd */}
+                                {userDetails.name}
                             </p>
                         </div>
                         
@@ -330,7 +287,8 @@ const Profile = () => {
                                 Email:
                             </h1>
                             <p style={{width:"400px"}}>
-                                accounts@vkjlaw.com
+                                {/* accounts@vkjlaw.com */}
+                                {userDetails.email}
                             </p>
                         </div>
                         
@@ -345,7 +303,8 @@ const Profile = () => {
                                 Phone Number:
                             </h1>
                             <p style={{width:"400px"}}>
-                                9589303384
+                                {/* 9589303384 */}
+                                {userDetails.phone}
                             </p>
                         </div>
                         
@@ -360,7 +319,8 @@ const Profile = () => {
                                 Whatsapp Number:
                             </h1>
                             <p style={{width:"400px"}}>
-                                9589303384
+                                {/* 9589303384 */}
+                                {userDetails.phone}
                             </p>
                         </div>
                         
