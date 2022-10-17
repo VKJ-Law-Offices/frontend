@@ -49,7 +49,7 @@ function App() {
           <Route path="/collect" element={<Collect />} />
           <Route path="/receipt" element={<Receipt />} />
           <Route path='/actions' element={<Actions />} />
-          <Route path='/communcication' element={<Communication />} />
+          <Route path='/communication' element={<Communication />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/create-invoice" element={<CreateInvoice />} />
           <Route path="/invoices" element={<Invoices />} />

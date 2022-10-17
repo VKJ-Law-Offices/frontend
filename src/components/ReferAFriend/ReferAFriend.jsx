@@ -121,8 +121,7 @@ const ReferAFriend = () => {
             <Menu
               theme="dark"
               mode="inline"
-              defaultSelectedKeys={["1"]}
-              style={{ height: "100vh" }}
+              defaultSelectedKeys={["12"]}
               items={[
                 {
                   key: "1",
@@ -183,6 +182,31 @@ const ReferAFriend = () => {
                   key: "12",
                   icon: <UploadOutlined />,
                   label: <NavLink className="nav-link" to="/refer-a-friend" variant="body2">Refer A Friend</NavLink>
+                },
+                {
+                  key: "13",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/actions" variant="body2">Actions</NavLink>
+                },
+                {
+                  key: "14",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/communication" variant="body2">Communication</NavLink>
+                },
+                {
+                  key: "15",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/purchase" variant="body2">Purchase</NavLink>
+                },
+                {
+                  key: "16",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/stock_items" variant="body2">Stock Items</NavLink>
+                },
+                {
+                  key: "17",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/pdc" variant="body2">PDC</NavLink>
                 },
               ]}
             />
