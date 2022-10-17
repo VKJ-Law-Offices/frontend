@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { message } from "antd";
+import { message, Button, Modal } from "antd";
+import "antd/dist/antd.css";
 
 const SignIn = () => {
   const navigate = useNavigate();
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [values, setValues] = useState({
     email: "",
@@ -14,26 +17,34 @@ const SignIn = () => {
     setValues({ ...values, [prop]: event.target.value });
   };
 
+  const [values2, setValues2] = useState({
+    email: "",
+  });
+
+  const handleChangeValues2 = (prop) => (event) => {
+    setValues2({ ...values2, [prop]: event.target.value });
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     const { email, password } = values;
-    
+
     const regex_email =
       /^([a-z A-Z 0-9 \.-_]+)@([a-z A-Z 0-9 \.-_]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
-    
+
     if (!regex_email.test(email)) {
       message.warning("Please enter a valid email");
       return;
     }
 
-    if(!password.trim()){
+    if (!password.trim()) {
       message.warning("Please fill the entries properly");
       return;
     }
 
     const res = await fetch("/api/users/login", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -42,14 +53,13 @@ const SignIn = () => {
         password,
       }),
     });
-    
+
     const data = await res.json();
 
-    if (!(data.flag)) {
+    if (!data.flag) {
       message.error(data.error);
       console.log(data.error);
     } else {
-
       localStorage.setItem("isLoggedIn", true);
       localStorage.setItem("userDetails", data.body.userDetails);
 
@@ -57,6 +67,61 @@ const SignIn = () => {
       console.log(data.message);
 
       navigate("/dashboard", { replace: true });
+    }
+  };
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleOk = async (event) => {
+    event.preventDefault();
+
+    const { email } = values2;
+
+    const reason = "forgetPassword";
+
+    const regex_email =
+      /^([a-z A-Z 0-9 \.-_]+)@([a-z A-Z 0-9 \.-_]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
+
+    if (!regex_email.test(email)) {
+      message.warning("Please enter a valid email");
+      return;
+    }
+
+    const res = await fetch("/api/users/send/verificationlink", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        reason,
+      }),
+    });
+
+    const data = await res.json();
+
+    if (!data.flag) {
+      if (data.status === "Error") {
+        message.error(data.message);
+        console.log(data.message);
+      } else {
+        message.error(data.error);
+        console.log(data.error);
+      }
+    } else {
+      message.success(data.message);
+      console.log(data.message);
+
+      handleCancel();
+
+      values2.email = "";
+      setValues2({ ...values2 });
     }
   };
 
@@ -92,9 +157,48 @@ const SignIn = () => {
             required
           />
 
-          <p style={{ margin: "5% 12% 0 1%", textAlign: "right" }}>
-            Forgot Password?
-          </p>
+          <div style={{ margin: "5% 12% 0 1%", textAlign: "right" }}>
+            <Button
+              type="link"
+              style={{ fontWeight: "700" }}
+              onClick={() => {
+                showModal();
+              }}
+            >
+              Forgot Password?
+            </Button>
+
+            <Modal
+              title="Forgot Password"
+              open={isModalOpen}
+              onOk={handleOk}
+              onCancel={handleCancel}
+              okText="Reset Password"
+              footer={[
+                <div className="signin_button" style={{ textAlign: "center" }}>
+                  <button
+                    type="submit"
+                    key="Reset Password"
+                    onClick={handleOk}
+                    style={{ margin: 0 }}
+                  >
+                    Reset Password
+                  </button>
+                </div>,
+              ]}
+            >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                value={values2.email}
+                onChange={handleChangeValues2("email")}
+                required
+                style={{ width: "100%" }}
+              />
+            </Modal>
+          </div>
 
           <div class="signin_button">
             <button type="submit" onClick={handleSubmit}>
