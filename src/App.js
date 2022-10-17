@@ -29,6 +29,9 @@ import css from "./styles/styles.css"
 import Actions from './components/temp/Actions/Actions';
 import Communication from './components/temp/Communication/Communication';
 import Home from './components/home/home';
+import Purchase from './components/Purchase/Purchase';
+import StockItems from './components/StockItems/StockItems';
+import Pdc from './components/Pdc/Pdc';
 
 function App() {
   return (
@@ -61,8 +64,12 @@ function App() {
           <Route path="/refer-a-friend" element={<ReferAFriend />} />
           <Route path="/privacy_policy" element={<PrivacyPolicy />} />
           <Route path="/terms_and_conditions" element={<TermsAndConditions />} />
-          <Route path="/mailverification/:userid/:token" element={<EmailVerify />} />
-          <Route path="*" element={ <Navigate to="/" /> } />
+          <Route path="/verify/mailverification/:userid/:token" element={<EmailVerify />} />
+          <Route path="*" element={<Navigate to="/" />} />
+          <Route path='/purchase' element={<Purchase />}/>
+          <Route path='/stock_items' element={<StockItems />}/>
+          <Route path='/home' element={<Home />}/>
+          <Route path='/pdc' element={<Pdc />}/>
         </Routes>
       </Router>
     </div>
