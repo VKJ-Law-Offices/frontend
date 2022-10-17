@@ -22,6 +22,7 @@ import ReferAFriend from './components/ReferAFriend/ReferAFriend'
 import Settings from './components/Settings/Settings'
 import Profile from './components/Profile/Profile'
 import EmailVerify from './components/EmailVerify/EmailVerify'
+import CreateInvoice from './components/CreateInvoice/CreateInvoice';
 import PrivacyPolicy from './components/PrivacyPolicy/PrivacyPolicy'
 import TermsAndConditions from './components/TermsAndConditions/TermsAndConditions'
 import css from "./styles/styles.css"
@@ -42,6 +43,7 @@ function App() {
           <Route path="/collect" element={<Collect />} />
           <Route path="/receipt" element={<Receipt />} />
           <Route path="/reports" element={<Reports />} />
+          <Route path="/create-invoice" element={<CreateInvoice/>}/>
           <Route path="/invoices" element={<Invoices />} />
           <Route path="/e-invoice" element={<E_Invoice />} />
           <Route path="/debtor_summary" element={<DebtorSummary />} />

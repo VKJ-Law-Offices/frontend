@@ -77,6 +77,13 @@ const Homepage = () => {
         >
           Reports
         </a>
+        <a
+          className="App-link"
+          href="/create-invoice"
+          rel="noopener noreferrer"
+        >
+          CreateInvoice
+        </a>
       </header>
 </div>
   )
