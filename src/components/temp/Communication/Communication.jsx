@@ -18,8 +18,8 @@ import Icon, { DownOutlined, UpOutlined } from "@ant-design/icons";
 import { Dropdown, Space, Tag } from "antd";
 
 import "antd/dist/antd.css";
-import "../DashboardLayout/dashboard-layout.css";
-import background from "../../resources/search-icon-SBI-300266455-preview.jpg";
+import "../../DashboardLayout/dashboard-layout.css";
+import background from "../../../resources/search-icon-SBI-300266455-preview.jpg";
 
 const { Column, ColumnGroup } = Table;
 const { Header, Sider, Content } = Layout;
@@ -115,7 +115,7 @@ const menu6 = (
 
 const onSearch = (value) => console.log(value);
 
-const Invoices = () => {
+const Communication = () => {
     const [collapsed, setCollapsed] = useState(true);
     const [droppeddown, setDroppeddown] = useState(false);
     const [droppeddown2, setDroppeddown2] = useState(false);
@@ -282,7 +282,35 @@ const Invoices = () => {
                                 <UserOutlined style={{ padding: "0 5px", fontSize: "175%" }} />
                             </span>
                         </Header>
+                        <Row style={{ margin: "24px 24px 0 24px" }}>
+                <div style={{ display: "flex", flexDirection:'column' }}>
+                    <p style={{ margin: 0 }}>
+                        Search by client name,communication-type,etc...
+                    </p>
+                  <Input
+                    placeholder="Search by client name,communication-type,etc..."
+                    style={{
+                      margin: "0 15px 0 0",
+                      width: "400px",
+                      height: "40px",
+                    }}
+                  />
+                </div>
+                        </Row>
+                        <Row style={{marginTop:"24px",paddingLeft:"1%"}}>
+                            <div className="" style={{width:"95%",display:'flex',justifyContent:'flex-end'}}>
+                                <div className="buttons-wrapper">
+                                    <Button>
+                                        <span role="img" aria-label="setting" class="anticon anticon-setting">
+                                        <span>Export to Excel</span>
+                                        </span>
+                                    </Button>
+                                </div>
+                            </div>
+                        </Row>
+                        <Table style={{margin:"24px",border:"2px solid "}}>
 
+                        </Table>
                     </Layout>
                     
                 </Layout>
@@ -291,4 +319,4 @@ const Invoices = () => {
     );
 };
 
-export default Invoices;
+export default Communication;
