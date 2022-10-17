@@ -83,80 +83,22 @@ const menu = (
     ]}
   />
 );
-const menu2 = (
+
+const userMenu = (
   <Menu
     items={[
       {
-        label: <a href="/dashboard">PDF</a>,
+        label: <a href="/profile">A TO Z MONEY RECOVERY AND CREDIT PVT LTD</a>,
         key: "0",
       },
       {
-        label: <a href="/dashboard">Excel</a>,
+        label: <a href="/signout">Sign Out</a>,
         key: "1",
       },
     ]}
   />
 );
 
-const menu3 = (
-  <Menu
-    items={[
-      {
-        label: <a href="/dashboard">Past 6 Months</a>,
-        key: "0",
-      },
-      {
-        label: <a href="/dashboard">Past 12 Months</a>,
-        key: "1",
-      },
-    ]}
-  />
-);
-
-const menu4 = (
-  <Menu
-    items={[
-      {
-        label: <a href="/dashboard">Past 6 Months</a>,
-        key: "0",
-      },
-      {
-        label: <a href="/dashboard">Past 12 Months</a>,
-        key: "1",
-      },
-    ]}
-  />
-);
-
-const menu5 = (
-  <Menu
-    items={[
-      {
-        label: <a href="/dashboard">Past 6 Months</a>,
-        key: "0",
-      },
-      {
-        label: <a href="/dashboard">Past 12 Months</a>,
-        key: "1",
-      },
-    ]}
-  />
-);
-
-const menu6 = (
-  <Menu
-    items={[
-      {
-        label: <a href="/dashboard">Past 6 Months</a>,
-        key: "0",
-      },
-      {
-        label: <a href="/dashboard">Past 12 Months</a>,
-        key: "1",
-      },
-    ]}
-  />
-);
 
 const onSearch = (value) => console.log(value);
 
@@ -271,68 +213,88 @@ const E_Invoices = () => {
                 top: 0,
               }}
             >
-            <div style={{display:"flex", flexDirection:"row"}}>
-              {React.createElement(
-                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-                {
-                  className: "trigger",
-                  onClick: () => setCollapsed(!collapsed),
-                }
-              )}
-              <div>
-                <Dropdown
-                  overlay={menu}
-                  trigger={["click"]}
-                  style={{ border: "2px black" }}
-                  onClick={() => setDroppeddown(!droppeddown)}
-                >
-                  <a onClick={(e) => e.preventDefault()}>
-                    <Space>
-                      <Button
-                        style={{ color: "rgb(22, 28, 75)", fontWeight: "bold" }}
-                      >
-                        A TO Z MONEY RECOVERY AND CREDIT PVT LTD
-                        {droppeddown ? <UpOutlined /> : <DownOutlined />}
-                      </Button>
-                    </Space>
-                  </a>
-                </Dropdown>
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                {React.createElement(
+                  collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+                  {
+                    className: "trigger",
+                    onClick: () => setCollapsed(!collapsed),
+                  }
+                )}
+                <div>
+                  <Dropdown
+                    overlay={menu}
+                    trigger={["click"]}
+                    style={{ border: "2px black" }}
+                    onClick={() => setDroppeddown(!droppeddown)}
+                  >
+                    <a onClick={(e) => e.preventDefault()}>
+                      <Space>
+                        <Button
+                          style={{
+                            color: "rgb(22, 28, 75)",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          A TO Z MONEY RECOVERY AND CREDIT PVT LTD
+                          {droppeddown ? <UpOutlined /> : <DownOutlined />}
+                        </Button>
+                      </Space>
+                    </a>
+                  </Dropdown>
 
-                <Button
-                  type="primary"
-                  shape="round"
-                  style={{
-                    margin: "0.5vw",
-                    backgroundColor: "rgb(40, 52, 149)",
-                    border: "none",
-                  }}
-                >
-                  Set Contact Details
-                </Button>
+                  <Button
+                    type="primary"
+                    shape="round"
+                    style={{
+                      margin: "0.5vw",
+                      backgroundColor: "rgb(40, 52, 149)",
+                      border: "none",
+                    }}
+                  >
+                    Set Contact Details
+                  </Button>
 
-                <Button
-                  type="primary"
-                  shape="round"
-                  style={{ margin: "0.5vw" }}
-                >
-                  Get Payment Link
-                </Button>
-              </div>
+                  <Button
+                    type="primary"
+                    shape="round"
+                    style={{ margin: "0.5vw" }}
+                  >
+                    Get Payment Link
+                  </Button>
+                </div>
 
-              <div style={{marginLeft: "auto",
-                      marginRight: "2%"}}>
-                <img src="https://app.credflow.in/imgs/userPermission.9e283aebf3c3255a5c0711a85d9ab00a.svg" alt=""
-                style={{ width:"30px", height:"auto", margin: "0 5px 10px 5px", fontSize: "175%" }}
-                />
-                <NavLink className="nav-link" to="/settings" variant="body2">
-                  <SettingOutlined
-                    style={{ padding: "0 5px", fontSize: "175%" }}
+                <div style={{ marginLeft: "auto", marginRight: "5%" }}>
+                  <img
+                    src="https://app.credflow.in/imgs/userPermission.9e283aebf3c3255a5c0711a85d9ab00a.svg"
+                    alt=""
+                    style={{
+                      width: "30px",
+                      height: "auto",
+                      margin: "0 5px 10px 5px",
+                      fontSize: "175%",
+                    }}
                   />
-                </NavLink>
-                <img src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-person-user-19.png" alt=""
-                style={{ width:"30px", height:"auto", margin: "0 5px 10px 5px", fontSize: "175%" }}
-                />
-              </div>
+                  <NavLink className="nav-link" to="/settings" variant="body2">
+                    <SettingOutlined
+                      style={{ padding: "0 5px", fontSize: "175%" }}
+                    />
+                  </NavLink>
+                  <Dropdown overlay={userMenu}>
+                    <a onClick={(e) => e.preventDefault()}>
+                      <img
+                        src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-person-user-19.png"
+                        alt=""
+                        style={{
+                          width: "30px",
+                          height: "auto",
+                          margin: "0 5px 10px 5px",
+                          fontSize: "175%",
+                        }}
+                      />
+                    </a>
+                  </Dropdown>
+                </div>
               </div>
             </Header>
             <div
