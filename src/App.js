@@ -21,6 +21,8 @@ import css from "./styles/styles.css"
 import Actions from './components/temp/Actions/Actions';
 import Communication from './components/temp/Communication/Communication';
 import Home from './components/home/home';
+import Purchase from './components/Purchase/Purchase';
+import StockItems from './components/StockItems/StockItems';
 
 function App() {
   return (
@@ -47,6 +49,8 @@ function App() {
           <Route path="/terms_and_conditions" element={<TermsAndConditions />} />
           <Route path="/verify/mailverification/:userid/:token" element={<EmailVerify />} />
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path='/purchase' element={<Purchase />}/>
+          <Route path='/stock_items' element={<StockItems />}/>
           <Route path='/home' element={<Home />}/>
         </Routes>
       </Router>
