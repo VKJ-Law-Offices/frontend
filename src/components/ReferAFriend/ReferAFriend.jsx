@@ -1,205 +1,25 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import { FiSettings } from "react-icons/fi";
-import { AiOutlineArrowUp } from "react-icons/ai"
+import { message, Upload } from "antd";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   UploadOutlined,
   UserOutlined,
   VideoCameraOutlined,
-  SearchOutlined,
   SettingOutlined,
+  EditOutlined,
 } from "@ant-design/icons";
-import { Input, Radio, Pagination, Table, Divider } from "antd";
-import { Card, Button, Col, Row, Statistic } from "antd";
-import { Layout, Menu, Typography } from "antd";
+import { Card, Button, Col, Row, Input } from "antd";
+import { Switch, Layout, Menu, Typography } from "antd";
 import Icon, { DownOutlined, UpOutlined } from "@ant-design/icons";
-import { Dropdown, Space, Tag } from "antd";
+import { Dropdown, Space } from "antd";
 
 import "antd/dist/antd.css";
 import "../DashboardLayout/dashboard-layout.css";
-import background from "../../resources/search-icon-SBI-300266455-preview.jpg";
+import { NavLink } from "react-router-dom";
 
-const { Column, ColumnGroup } = Table;
 const { Header, Sider, Content } = Layout;
-const { Search } = Input;
 const { Title } = Typography;
-
-
-const maincolumn = [
-  {
-    title: "Sales Amount",
-    dataIndex: "sales_amount"
-  },
-  {
-    title: "Total Sales",
-    dataIndex: "total_sales"
-  },
-  {
-    title: "Paid",
-    dataIndex: "paid"
-  }
-]
-
-const maindata = [
-  {
-    sales_amount: "Rs 20,000",
-    total_sales: "Rs 110,000",
-    paid: "Rs 70,000"
-  }
-]
-
-const columns = [
-  {
-    title: "DATE",
-    dataIndex: "date",
-    sorter: {
-      compare: (a, b) => a.date - b.date,
-      multiple: 3,
-    },
-  },
-  {
-    title: "SALES INVOICE NO.",
-    dataIndex: "inv_no",
-  },
-  {
-    title: "PARTY NAME",
-    dataIndex: "customer_name",
-  },
-  {
-    title: "DUE IN",
-    dataIndex: "due_date",
-    sorter: {
-      compare: (a, b) => a.inv_no - b.inv_no,
-      multiple: 3,
-    },
-  },
-  {
-    title: "AMOUNT",
-    dataIndex: "amount",
-    sorter: {
-      compare: (a, b) => a.inv_no - b.inv_no,
-      multiple: 3,
-    },
-  },
-  {
-    title: "",
-    dataIndex: "tags",
-    key: "tags",
-  }
-];
-
-const data = [
-  {
-    key: "1",
-    date: "John Brown",
-    sales_invoice: 1,
-    party_name: "Arjun Singh",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "2",
-    date: "Jim Green",
-    sales_invoice: 2,
-    party_name: "Bhanu Prakash",
-    amount: 70,
-    tags: ["Paid"]
-  },
-  {
-    key: "3",
-    date: "Joe Black",
-    sales_invoice: 3,
-    party_name: "Chintan Chabra",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "4",
-    date: "Jim Red",
-    sales_invoice: 4,
-    party_name: "Dean Dio",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "5",
-    date: "Jim Red",
-    sales_invoice: 5,
-    party_name: "Jasmine Kapoor",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "6",
-    date: "Jim Red",
-    sales_invoice: 6,
-    party_name: "Zaid Khan",
-    amount: 70,
-    tags: ["Paid"],
-  },
-  {
-    key: "7",
-    date: "Jim Red",
-    sales_invoice: 7,
-    party_name: "Kotla Khan",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "8",
-    date: "Jim Red",
-    sales_invoice: 8,
-    party_name: "Rishi Yadav",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "9",
-    date: "Jim Red",
-    sales_invoice: 9,
-    party_name: "Rohan Kapoor",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "10",
-    date: "Jim Red",
-    sales_invoice: 10,
-    party_name: "Sanjiv Rathee",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "11",
-    date: "Jim Red",
-    sales_invoice: 11,
-    party_name: "Tarun Sharma",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-];
-
-const onChangeTableValues = (pagination, filters, sorter, extra) => {
-  console.log("params", pagination, filters, sorter, extra);
-};
-
-const onShowSizeChange = (current, pageSize) => {
-  console.log(current, pageSize);
-};
-
-const plainOptions = ["Detailed Summary", "Ageing Summary"];
-const options = [
-  {
-    label: "Detailed Summary",
-    value: "Detailed Summary",
-  },
-  {
-    label: "Ageing Summary",
-    value: "Ageing Summary",
-  },
-];
 
 const menu = (
   <Menu
@@ -229,10 +49,7 @@ const userMenu = (
   />
 );
 
-
-const onSearch = (value) => console.log(value);
-
-const Invoices = () => {
+const ReferAFriend = () => {
   const [collapsed, setCollapsed] = useState(true);
   const [droppeddown, setDroppeddown] = useState(false);
   const [droppeddown2, setDroppeddown2] = useState(false);
@@ -240,11 +57,46 @@ const Invoices = () => {
   const [droppeddown4, setDroppeddown4] = useState(false);
   const [droppeddown5, setDroppeddown5] = useState(false);
   const [droppeddown6, setDroppeddown6] = useState(false);
-  const [summaryValue, setSummaryValue] = useState("Detailed Summary");
 
-  const onChangeSummaryValue = ({ target: { value } }) => {
-    console.log("radio4 checked", value);
-    setSummaryValue(value);
+  const [fileList, setFileList] = useState([]);
+  const [uploading, setUploading] = useState(false);
+
+  const handleUpload = () => {
+    const formData = new FormData();
+    fileList.forEach((file) => {
+      formData.append("files[]", file);
+    });
+    setUploading(true); // You can use any AJAX library you like
+
+    fetch("https://www.mocky.io/v2/5cc8019d300000980a055e76", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then(() => {
+        setFileList([]);
+        message.success("upload successfully.");
+      })
+      .catch(() => {
+        message.error("upload failed.");
+      })
+      .finally(() => {
+        setUploading(false);
+      });
+  };
+
+  const props = {
+    onRemove: (file) => {
+      const index = fileList.indexOf(file);
+      const newFileList = fileList.slice();
+      newFileList.splice(index, 1);
+      setFileList(newFileList);
+    },
+    beforeUpload: (file) => {
+      setFileList([...fileList, file]);
+      return false;
+    },
+    fileList,
   };
 
   return (
@@ -340,7 +192,6 @@ const Invoices = () => {
             className="site-layout"
             style={{
               marginLeft: collapsed ? 80 : 200,
-              minHeight: "100vh",
             }}
           >
             <Header
@@ -439,120 +290,15 @@ const Invoices = () => {
             </Header>
             <div
               style={{
-                paddingLeft: "1%",
+                margin: "1% 5% 0 5%",
+                paddingLeft: "0%",
                 paddingRight: "0%",
+                minHeight: "100vh",
+                fontSize: "18px",
+                textAlign: "center",
               }}
             >
-              <Row>
-                <div style={{ width: "80%" }}>
-                  <div
-                    style={{
-                      display: "flex",
-
-                    }}
-                  >
-                    <div>
-                      <h2 style={{ fontSize: '25px', fontWeight: '900', marginTop: "10px" }}>Sales Invoices</h2>
-                      <h1 style={{ fontSize: '15px', marginTop: "-8%" }}>Bill Your Sales to Customers</h1>
-                    </div>
-                    <div style={{
-                      display: "flex", width: "60px",
-                      marginLeft: "auto",
-                      marginRight: "70px",
-                      marginTop: "32px"
-                    }}>
-                      <Button
-                        type="primary"
-                        style={{
-                          margin: "0 1vw",
-                          backgroundColor: "#d8d7df",
-                          color: "#000000",
-                          border: "none",
-                        }}
-                      ><a style={{ color: "#000000" }}>Invoice Settings</a>&nbsp;
-                        <FiSettings />
-                      </Button>
-                      <Button
-                        type="primary"
-                        style={{
-                          margin: "0 1vw",
-                          backgroundColor: "rgb(40, 52, 149)",
-                          border: "none",
-                        }}
-                      >
-                        <AiOutlineArrowUp />&nbsp;<a style={{ color: "#ffffff" }}>Create Sales Invoices</a>
-                      </Button>
-                    </div>
-
-                  </div>
-                </div>
-              </Row>
-              <hr />
-              <Row style={{ marginBottom: "1%", marginTop: "-3%" }}>
-                <div style={{ display: "flex" }}>
-                  <Input
-                    placeholder="Search by Debtor Name"
-                    style={{
-                      margin: "5% 15px 0 0",
-                      width: "320px",
-                      height: "40px",
-                    }}
-                  />
-                  <Input
-                    placeholder="Filter via Invoice Date"
-                    style={{
-                      margin: "5% 15px 0 0",
-                      width: "280px",
-                      height: "40px",
-                    }}
-                  />
-                  <Input
-                    placeholder="Filter via Invoice Due Date"
-                    style={{
-                      margin: "5% 15px 0 0",
-                      width: "280px",
-                      height: "40px",
-                    }}
-                  />
-                  <Input
-                    placeholder="Filter via Tally Groups"
-                    style={{
-                      margin: "5% 15px 0 0",
-                      width: "220px",
-                      height: "40px",
-                    }}
-                  />
-                </div>
-              </Row>
-              <Table
-                style={{ marginLeft: "0%", marginRight: "70%", paddingBottom: "1%" }}
-                tags={maindata}
-                columns={maincolumn}
-                dataSource={maindata}
-                onChange={onChangeTableValues}
-                pagination={
-                  false
-                }
-              />
-              <Table dataSource={data}>
-                <Column title="Date" dataIndex="date" key="date" />
-                <Column title="Sales Invoice No" dataIndex="sales_invoice" key="sales_invoice" />
-                <Column title="Party Name" dataIndex="party_name" key="party_name" />
-                <Column title="Amount" dataIndex="amount" key="amount" />
-                <Column
-                  title=""
-                  dataIndex="tags"
-                  key="tags"
-                  
-                  render={(tag) => (
-                    <>
-                    <Tag  color="blue" key={tag}>
-                          {tag}
-                        </Tag>
-                    </>
-                  )}
-                />
-              </Table>
+              <h1>This is Refer A Friend page.</h1>
             </div>
           </Layout>
         </Layout>
@@ -561,4 +307,4 @@ const Invoices = () => {
   );
 };
 
-export default Invoices;
+export default ReferAFriend;

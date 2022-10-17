@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
-import { AiOutlineArrowUp } from "react-icons/ai"
+import { AiOutlineArrowUp } from "react-icons/ai";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
@@ -15,7 +15,7 @@ import { Input, Radio, Pagination, Table, Divider } from "antd";
 import { Card, Button, Col, Row, Statistic } from "antd";
 import { Layout, Menu, Typography } from "antd";
 import Icon, { DownOutlined, UpOutlined } from "@ant-design/icons";
-import { Dropdown, Space, Tag } from "antd";
+import { Dropdown, Space } from "antd";
 
 import "antd/dist/antd.css";
 import "../DashboardLayout/dashboard-layout.css";
@@ -26,159 +26,45 @@ const { Header, Sider, Content } = Layout;
 const { Search } = Input;
 const { Title } = Typography;
 
-
 const maincolumn = [
   {
-    title: "Sales Amount",
-    dataIndex: "sales_amount"
+    title: "All",
+    dataIndex: "all",
   },
   {
-    title: "Total Sales",
-    dataIndex: "total_sales"
+    title: "To Collect",
+    dataIndex: "to_collect",
   },
   {
-    title: "Paid",
-    dataIndex: "paid"
-  }
-]
+    title: "To Pay",
+    dataIndex: "to_pay",
+  },
+];
 
 const maindata = [
   {
-    sales_amount: "Rs 20,000",
-    total_sales: "Rs 110,000",
-    paid: "Rs 70,000"
-  }
-]
-
-const columns = [
-  {
-    title: "DATE",
-    dataIndex: "date",
-    sorter: {
-      compare: (a, b) => a.date - b.date,
-      multiple: 3,
-    },
+    to_collect: "Rs 20,000",
+    to_pay: "Rs 10,000",
   },
-  {
-    title: "SALES INVOICE NO.",
-    dataIndex: "inv_no",
-  },
-  {
-    title: "PARTY NAME",
-    dataIndex: "customer_name",
-  },
-  {
-    title: "DUE IN",
-    dataIndex: "due_date",
-    sorter: {
-      compare: (a, b) => a.inv_no - b.inv_no,
-      multiple: 3,
-    },
-  },
-  {
-    title: "AMOUNT",
-    dataIndex: "amount",
-    sorter: {
-      compare: (a, b) => a.inv_no - b.inv_no,
-      multiple: 3,
-    },
-  },
-  {
-    title: "",
-    dataIndex: "tags",
-    key: "tags",
-  }
 ];
 
 const data = [
   {
     key: "1",
-    date: "John Brown",
-    sales_invoice: 1,
-    party_name: "Arjun Singh",
-    amount: 70,
-    tags: ["Unpaid"]
+    name: "ABC Pvt Ltd",
+    category: "--",
+    mobile_number: 7799988521,
+    party_type: "Customer",
+    balance: "Rs. 20,000"
   },
   {
     key: "2",
-    date: "Jim Green",
-    sales_invoice: 2,
-    party_name: "Bhanu Prakash",
-    amount: 70,
-    tags: ["Paid"]
-  },
-  {
-    key: "3",
-    date: "Joe Black",
-    sales_invoice: 3,
-    party_name: "Chintan Chabra",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "4",
-    date: "Jim Red",
-    sales_invoice: 4,
-    party_name: "Dean Dio",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "5",
-    date: "Jim Red",
-    sales_invoice: 5,
-    party_name: "Jasmine Kapoor",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "6",
-    date: "Jim Red",
-    sales_invoice: 6,
-    party_name: "Zaid Khan",
-    amount: 70,
-    tags: ["Paid"],
-  },
-  {
-    key: "7",
-    date: "Jim Red",
-    sales_invoice: 7,
-    party_name: "Kotla Khan",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "8",
-    date: "Jim Red",
-    sales_invoice: 8,
-    party_name: "Rishi Yadav",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "9",
-    date: "Jim Red",
-    sales_invoice: 9,
-    party_name: "Rohan Kapoor",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "10",
-    date: "Jim Red",
-    sales_invoice: 10,
-    party_name: "Sanjiv Rathee",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
-  {
-    key: "11",
-    date: "Jim Red",
-    sales_invoice: 11,
-    party_name: "Tarun Sharma",
-    amount: 70,
-    tags: ["Unpaid"]
-  },
+    name: "XYZ Pvt Ltd",
+    category: "--",
+    mobile_number: 7123988521,
+    party_type: "Customer",
+    balance: "Rs. 10,500"
+  }
 ];
 
 const onChangeTableValues = (pagination, filters, sorter, extra) => {
@@ -229,10 +115,9 @@ const userMenu = (
   />
 );
 
-
 const onSearch = (value) => console.log(value);
 
-const Invoices = () => {
+const Parties = () => {
   const [collapsed, setCollapsed] = useState(true);
   const [droppeddown, setDroppeddown] = useState(false);
   const [droppeddown2, setDroppeddown2] = useState(false);
@@ -448,19 +333,28 @@ const Invoices = () => {
                   <div
                     style={{
                       display: "flex",
-
                     }}
                   >
                     <div>
-                      <h2 style={{ fontSize: '25px', fontWeight: '900', marginTop: "10px" }}>Sales Invoices</h2>
-                      <h1 style={{ fontSize: '15px', marginTop: "-8%" }}>Bill Your Sales to Customers</h1>
+                      <h2
+                        style={{
+                          fontSize: "25px",
+                          fontWeight: "900",
+                          marginTop: "32px",
+                        }}
+                      >
+                        Parties
+                      </h2>
                     </div>
-                    <div style={{
-                      display: "flex", width: "60px",
-                      marginLeft: "auto",
-                      marginRight: "70px",
-                      marginTop: "32px"
-                    }}>
+                    <div
+                      style={{
+                        display: "flex",
+                        width: "60px",
+                        marginLeft: "auto",
+                        marginRight: "200px",
+                        marginTop: "32px",
+                      }}
+                    >
                       <Button
                         type="primary"
                         style={{
@@ -469,7 +363,9 @@ const Invoices = () => {
                           color: "#000000",
                           border: "none",
                         }}
-                      ><a style={{ color: "#000000" }}>Invoice Settings</a>&nbsp;
+                      >
+                        <a style={{ color: "#000000" }}>Parties Settings</a>
+                        &nbsp;
                         <FiSettings />
                       </Button>
                       <Button
@@ -480,10 +376,20 @@ const Invoices = () => {
                           border: "none",
                         }}
                       >
-                        <AiOutlineArrowUp />&nbsp;<a style={{ color: "#ffffff" }}>Create Sales Invoices</a>
+                        Bulk Import Parties
+                      </Button>
+                      <Button
+                        type="primary"
+                        style={{
+                          margin: "0 1vw",
+                          backgroundColor: "rgb(40, 52, 149)",
+                          border: "none",
+                        }}
+                      >
+                        <AiOutlineArrowUp />
+                        &nbsp;<a style={{ color: "#ffffff" }}>Create Party</a>
                       </Button>
                     </div>
-
                   </div>
                 </div>
               </Row>
@@ -525,33 +431,30 @@ const Invoices = () => {
                 </div>
               </Row>
               <Table
-                style={{ marginLeft: "0%", marginRight: "70%", paddingBottom: "1%" }}
-                tags={maindata}
+                style={{
+                  marginLeft: "0%",
+                  marginRight: "70%",
+                  paddingBottom: "1%",
+                }}
                 columns={maincolumn}
                 dataSource={maindata}
                 onChange={onChangeTableValues}
-                pagination={
-                  false
-                }
+                pagination={false}
               />
               <Table dataSource={data}>
-                <Column title="Date" dataIndex="date" key="date" />
-                <Column title="Sales Invoice No" dataIndex="sales_invoice" key="sales_invoice" />
-                <Column title="Party Name" dataIndex="party_name" key="party_name" />
-                <Column title="Amount" dataIndex="amount" key="amount" />
+                <Column title="Name" dataIndex="name" key="name" />
+                <Column title="Category" dataIndex="category" key="category" />
                 <Column
-                  title=""
-                  dataIndex="tags"
-                  key="tags"
-                  
-                  render={(tag) => (
-                    <>
-                    <Tag  color="blue" key={tag}>
-                          {tag}
-                        </Tag>
-                    </>
-                  )}
+                  title="Mobile Number"
+                  dataIndex="mobile_number"
+                  key="mobile_number"
                 />
+                <Column
+                  title="Party Type"
+                  dataIndex="party_type"
+                  key="party_type"
+                />
+                <Column title="Balance" dataIndex="balance" key="balance"/>
               </Table>
             </div>
           </Layout>
@@ -561,4 +464,4 @@ const Invoices = () => {
   );
 };
 
-export default Invoices;
+export default Parties;

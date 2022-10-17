@@ -33,95 +33,16 @@ const menu = (
     ]}
   />
 );
-const menu2 = (
-  <Menu
-    items={[
-      {
-        label: <a href="/dashboard">15 Days</a>,
-        key: "0",
-      },
-      {
-        label: <a href="/dashboard">30 Days</a>,
-        key: "1",
-      },
-      {
-        label: <a href="/dashboard">45 Days</a>,
-        key: "2",
-      },
-      {
-        label: <a href="/dashboard">60 Days</a>,
-        key: "3",
-      },
-      {
-        label: <a href="/dashboard">75 Days</a>,
-        key: "4",
-      },
-      {
-        label: <a href="/dashboard">90 Days</a>,
-        key: "5",
-      },
-      {
-        label: <a href="/dashboard">120 Days</a>,
-        key: "6",
-      },
-    ]}
-  />
-);
 
-const menu3 = (
+const userMenu = (
   <Menu
     items={[
       {
-        label: <a href="/dashboard">Past 6 Months</a>,
+        label: <a href="/profile">A TO Z MONEY RECOVERY AND CREDIT PVT LTD</a>,
         key: "0",
       },
       {
-        label: <a href="/dashboard">Past 12 Months</a>,
-        key: "1",
-      },
-    ]}
-  />
-);
-
-const menu4 = (
-  <Menu
-    items={[
-      {
-        label: <a href="/dashboard">Past 6 Months</a>,
-        key: "0",
-      },
-      {
-        label: <a href="/dashboard">Past 12 Months</a>,
-        key: "1",
-      },
-    ]}
-  />
-);
-
-const menu5 = (
-  <Menu
-    items={[
-      {
-        label: <a href="/dashboard">Past 6 Months</a>,
-        key: "0",
-      },
-      {
-        label: <a href="/dashboard">Past 12 Months</a>,
-        key: "1",
-      },
-    ]}
-  />
-);
-
-const menu6 = (
-  <Menu
-    items={[
-      {
-        label: <a href="/dashboard">Past 6 Months</a>,
-        key: "0",
-      },
-      {
-        label: <a href="/dashboard">Past 12 Months</a>,
+        label: <a href="/signout">Sign Out</a>,
         key: "1",
       },
     ]}
@@ -186,7 +107,7 @@ const Profile = () => {
     <div>
       <div class="components-layout-demo-custom-trigger">
         <Layout>
-          <Sider
+        <Sider
             trigger={null}
             collapsible
             collapsed={collapsed}
@@ -210,52 +131,62 @@ const Profile = () => {
                 {
                   key: "1",
                   icon: <UserOutlined />,
-                  label: "Dashboard",
+                  label: <NavLink className="nav-link" to="/dashboard" variant="body2">Dashboard</NavLink>
                 },
                 {
                   key: "2",
                   icon: <VideoCameraOutlined />,
-                  label: "Collect",
+                  label: <NavLink className="nav-link" to="/collect" variant="body2">Collect</NavLink>
                 },
                 {
                   key: "3",
                   icon: <UploadOutlined />,
-                  label: "Receipt",
+                  label: <NavLink className="nav-link" to="/e-invoice" variant="body2">E-Invoice</NavLink>
                 },
                 {
                   key: "4",
                   icon: <UploadOutlined />,
-                  label: "Receipt",
+                  label: <NavLink className="nav-link" to="/invoices" variant="body2">Invoices</NavLink>
                 },
                 {
                   key: "5",
                   icon: <VideoCameraOutlined />,
-                  label: "Actions",
+                  label: <NavLink className="nav-link" to="/receipt" variant="body2">Receipt</NavLink>
                 },
                 {
                   key: "6",
                   icon: <UploadOutlined />,
-                  label: "Incentives",
+                  label: <NavLink className="nav-link" to="/parties" variant="body2">Parties</NavLink>
                 },
                 {
                   key: "7",
                   icon: <UploadOutlined />,
-                  label: "Communication",
+                  label: <NavLink className="nav-link" to="/reports" variant="body2">Reports</NavLink>
                 },
                 {
                   key: "8",
                   icon: <UploadOutlined />,
-                  label: "Pay",
+                  label: <NavLink className="nav-link" to="/roi-calculator" variant="body2">ROI Calculator</NavLink>
+                },
+                {
+                  key: "9",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/instant-invoice-loans" variant="body2">Instant Invoice Loans</NavLink>
+                },
+                {
+                  key: "10",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/start-recovery-proceedings" variant="body2">Start Recovery Proceedings</NavLink>
                 },
                 {
                   key: "11",
                   icon: <UploadOutlined />,
-                  label: "Stock Items",
+                  label: <NavLink className="nav-link" to="/credit-ratings" variant="body2">Credit Ratings</NavLink>
                 },
                 {
                   key: "12",
                   icon: <UploadOutlined />,
-                  label: "unknown",
+                  label: <NavLink className="nav-link" to="/refer-a-friend" variant="body2">Refer A Friend</NavLink>
                 },
               ]}
             />
@@ -277,61 +208,89 @@ const Profile = () => {
                 top: 0,
               }}
             >
-              {React.createElement(
-                collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-                {
-                  className: "trigger",
-                  onClick: () => setCollapsed(!collapsed),
-                }
-              )}
-              <span>
-                <Dropdown
-                  overlay={menu}
-                  trigger={["click"]}
-                  style={{ border: "2px black" }}
-                  onClick={() => setDroppeddown(!droppeddown)}
-                >
-                  <a onClick={(e) => e.preventDefault()}>
-                    <Space>
-                      <Button
-                        style={{ color: "rgb(22, 28, 75)", fontWeight: "bold" }}
-                      >
-                        A TO Z MONEY RECOVERY AND CREDIT PVT LTD
-                        {droppeddown ? <UpOutlined /> : <DownOutlined />}
-                      </Button>
-                    </Space>
-                  </a>
-                </Dropdown>
+              <div style={{ display: "flex", flexDirection: "row" }}>
+                {React.createElement(
+                  collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
+                  {
+                    className: "trigger",
+                    onClick: () => setCollapsed(!collapsed),
+                  }
+                )}
+                <div>
+                  <Dropdown
+                    overlay={menu}
+                    trigger={["click"]}
+                    style={{ border: "2px black" }}
+                    onClick={() => setDroppeddown(!droppeddown)}
+                  >
+                    <a onClick={(e) => e.preventDefault()}>
+                      <Space>
+                        <Button
+                          style={{
+                            color: "rgb(22, 28, 75)",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          A TO Z MONEY RECOVERY AND CREDIT PVT LTD
+                          {droppeddown ? <UpOutlined /> : <DownOutlined />}
+                        </Button>
+                      </Space>
+                    </a>
+                  </Dropdown>
 
-                <Button
-                  type="primary"
-                  shape="round"
-                  style={{
-                    margin: "0.5vw",
-                    backgroundColor: "rgb(40, 52, 149)",
-                    border: "none",
-                  }}
-                >
-                  Set Contact Details
-                </Button>
+                  <Button
+                    type="primary"
+                    shape="round"
+                    style={{
+                      margin: "0.5vw",
+                      backgroundColor: "rgb(40, 52, 149)",
+                      border: "none",
+                    }}
+                  >
+                    Set Contact Details
+                  </Button>
 
-                <Button
-                  type="primary"
-                  shape="round"
-                  style={{ margin: "0.5vw" }}
-                >
-                  Get Payment Link
-                </Button>
-              </span>
+                  <Button
+                    type="primary"
+                    shape="round"
+                    style={{ margin: "0.5vw" }}
+                  >
+                    Get Payment Link
+                  </Button>
+                </div>
 
-              <span>
-                <NavLink className="nav-link" to="/settings" variant="body2">
-                  <SettingOutlined
-                    style={{ padding: "0 5px", fontSize: "175%" }}
+                <div style={{ marginLeft: "auto", marginRight: "5%" }}>
+                  <img
+                    src="https://app.credflow.in/imgs/userPermission.9e283aebf3c3255a5c0711a85d9ab00a.svg"
+                    alt=""
+                    style={{
+                      width: "30px",
+                      height: "auto",
+                      margin: "0 5px 10px 5px",
+                      fontSize: "175%",
+                    }}
                   />
-                </NavLink>
-                <UserOutlined style={{ padding: "0 5px", fontSize: "175%" }} />
-              </span>
+                  <NavLink className="nav-link" to="/settings" variant="body2">
+                    <SettingOutlined
+                      style={{ padding: "0 5px", fontSize: "175%" }}
+                    />
+                  </NavLink>
+                  <Dropdown overlay={userMenu}>
+                    <a onClick={(e) => e.preventDefault()}>
+                      <img
+                        src="https://www.freeiconspng.com/thumbs/profile-icon-png/profile-icon-person-user-19.png"
+                        alt=""
+                        style={{
+                          width: "30px",
+                          height: "auto",
+                          margin: "0 5px 10px 5px",
+                          fontSize: "175%",
+                        }}
+                      />
+                    </a>
+                  </Dropdown>
+                </div>
+              </div>
             </Header>
             <div
               style={{

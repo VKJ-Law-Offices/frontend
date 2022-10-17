@@ -22,6 +22,8 @@ const SignUp = () => {
 
     const { name, email, phone, password, softwareName, isChecked } = values;
 
+    const reason = "signup"
+
     const regex_email =
       /^([a-z A-Z 0-9 \.-_]+)@([a-z A-Z 0-9 \.-_]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
 
@@ -69,71 +71,64 @@ const SignUp = () => {
       }
     } else {
       message.success(data.message);
-      message.success("Check your mail for verification link");
 
-      console.log(data.message);
-      console.log("Check your mail for verification link");
+      const res = await fetch("/api/users/send/verificationlink", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          reason
+        }),
+      });
+
+      const data2 = await res.json();
+      console.log(data2);
+
+      if(!data2.flag){
+        message.error("User dose not exist");
+      }else{
+        message.success(data2.message);
+        }
     }
   };  
   
-  const handleSubmit2 = async (event) => {
-    event.preventDefault();
+  const handleResendMail = async() =>{
+    const { email } = values;
 
-    const { name, email, phone, password, softwareName, isChecked } = values;
+    const reason = "signup"
 
     const regex_email =
-      /^([a-z A-Z 0-9 \.-_]+)@([a-z A-Z 0-9 \.-_]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
+      /^([a-z A-Z 0-9 \.-]+)@([a-z A-Z 0-9 \.-]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
 
     if (!regex_email.test(email)) {
       message.warning("Please enter a valid email");
       return;
     }
-
-    if (
-      !(name.trim() && phone.trim() && password.trim() && softwareName.trim())
-    ) {
-      message.warning("Please fill the entries properly");
-      return;
-    }
-
-    if (!isChecked) {
-      message.warning("Should accept Terms And Conditions");
-      return;
-    }
-
-    const res = await fetch("/api/users/create", {
+    const res = await fetch("/api/users/send/verificationlink", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        name,
         email,
-        phone,
-        password,
-        softwareName,
+        reason
       }),
     });
 
     const data = await res.json();
+    console.log(data);
 
     if (!data.flag) {
-      if (data.status === "OK") {
         message.error(data.message);
         console.log(data.message);
-      } else {
-        message.error("Invalid email or password");
-        console.log(data.error);
-      }
     } else {
       message.success(data.message);
-      message.success("Check your mail for verification link");
-
       console.log(data.message);
-      console.log("Check your mail for verification link");
     }
-  };
-  
+  }
+
   return (
     <div class="signup-body">
       <div class="signup-body-container">
@@ -244,7 +239,7 @@ const SignUp = () => {
           </div>
 
           <div style={{ margin: "5% 12% 0 1%", textAlign: "right" }}>
-            <Button type="link" style={{ fontWeight: "700" }} onClick={{}}>
+            <Button type="link" style={{ fontWeight: "700" }} onClick={handleResendMail}>
               Resend verification link
             </Button>
           </div>
