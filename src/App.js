@@ -23,6 +23,7 @@ import Communication from './components/temp/Communication/Communication';
 import Home from './components/home/home';
 import Purchase from './components/Purchase/Purchase';
 import StockItems from './components/StockItems/StockItems';
+import Pdc from './components/Pdc/Pdc';
 
 function App() {
   return (
@@ -52,6 +53,8 @@ function App() {
           <Route path='/purchase' element={<Purchase />}/>
           <Route path='/stock_items' element={<StockItems />}/>
           <Route path='/home' element={<Home />}/>
+          <Route path='/pdc' element={<Pdc />}/>
+          
         </Routes>
       </Router>
     </div>
