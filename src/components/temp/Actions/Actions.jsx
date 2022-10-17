@@ -27,160 +27,161 @@ const { Search } = Input;
 const { Title } = Typography;
 
 const columns = [
-    {title:<Checkbox></Checkbox>,
-     dataIndex:"check",
+    {
+        title: <Checkbox></Checkbox>,
+        dataIndex: "check",
     },
     {
-      title: "  DEBITOR NAME",
-      dataIndex: "debitor_name",
+        title: "  DEBITOR NAME",
+        dataIndex: "debitor_name",
     },
     {
-      title: "DATE",
-      dataIndex: "date",
-      sorter: {
-        compare: (a, b) => a.date - b.date,
-        multiple: 3,
-      },
+        title: "DATE",
+        dataIndex: "date",
+        sorter: {
+            compare: (a, b) => a.date - b.date,
+            multiple: 3,
+        },
     },
     {
-      title: "PROMISE TO PAY",
-      dataIndex: "promise_to_play",
+        title: "PROMISE TO PAY",
+        dataIndex: "promise_to_play",
     },
     {
-      title: "ADDED ON",
-      dataIndex: "added_on",
-      sorter: {
-        compare: (a, b) => a.amount - b.amount,
-        multiple: 3,
-      },
+        title: "ADDED ON",
+        dataIndex: "added_on",
+        sorter: {
+            compare: (a, b) => a.amount - b.amount,
+            multiple: 3,
+        },
     },
     {
-      title: "TASK DETAILS",
-      dataIndex: "task_details",
+        title: "TASK DETAILS",
+        dataIndex: "task_details",
     },
     {
         title: "STATUS",
         dataIndex: "status",
     },
     {
-      title: "ACCOUNT MANAGER",
-      dataIndex: "account_manager",
-      sorter: {
-        compare: (a, b) => a.syncing_status - b.syncing_status,
-        multiple: 3,
-      },
+        title: "ACCOUNT MANAGER",
+        dataIndex: "account_manager",
+        sorter: {
+            compare: (a, b) => a.syncing_status - b.syncing_status,
+            multiple: 3,
+        },
     },
     {
-        title:"HISTORY",
-        dataIndex:"history"
+        title: "HISTORY",
+        dataIndex: "history"
     }
-  ];
-  
-  const data = [
+];
+
+const data = [
     {
-      key: "1",
-      check:<Checkbox style={{border:"1ps solid black"}}></Checkbox>,
-      debitor_name:"John Brown",
-      account_manager:"John wick",
-      date: "22-sep-2002",
-      promise_to_pay:"add amount",
-      added_on:"20-aug-2002",
-      status:"false",
-      history:<Button style={{ backgroundColor: "#1890ff" ,color:"white"}}>See details</Button>
+        key: "1",
+        check: <Checkbox style={{ border: "1ps solid black" }}></Checkbox>,
+        debitor_name: "John Brown",
+        account_manager: "John wick",
+        date: "22-sep-2002",
+        promise_to_pay: "add amount",
+        added_on: "20-aug-2002",
+        status: "false",
+        history: <Button style={{ backgroundColor: "#1890ff", color: "white" }}>See details</Button>
     },
     {
         key: "2",
-        check:<Checkbox style={{border:"1ps solid black"}}></Checkbox>,
-        debitor_name:"John Brown",
-        account_manager:"John wick",
+        check: <Checkbox style={{ border: "1ps solid black" }}></Checkbox>,
+        debitor_name: "John Brown",
+        account_manager: "John wick",
         date: "22-sep-2002",
-        promise_to_pay:"add amount",
-        added_on:"20-aug-2002",
-        status:"false",
-        history:<Button style={{ backgroundColor: "#1890ff" ,color:"white"}}>See details</Button>
-      },
-      {
+        promise_to_pay: "add amount",
+        added_on: "20-aug-2002",
+        status: "false",
+        history: <Button style={{ backgroundColor: "#1890ff", color: "white" }}>See details</Button>
+    },
+    {
         key: "3",
-        check:<Checkbox style={{border:"1ps solid black"}}></Checkbox>,
-        debitor_name:"John Brown",
-        account_manager:"John wick",
+        check: <Checkbox style={{ border: "1ps solid black" }}></Checkbox>,
+        debitor_name: "John Brown",
+        account_manager: "John wick",
         date: "22-sep-2002",
-        promise_to_pay:"add amount",
-        added_on:"20-aug-2002",
-        status:"false",
-        history:<Button style={{ backgroundColor: "#1890ff" ,color:"white"}}>See details</Button>
-      },
-      {
+        promise_to_pay: "add amount",
+        added_on: "20-aug-2002",
+        status: "false",
+        history: <Button style={{ backgroundColor: "#1890ff", color: "white" }}>See details</Button>
+    },
+    {
         key: "4",
-        check:<Checkbox style={{border:"1ps solid black"}}></Checkbox>,
-        debitor_name:"John Brown",
-        account_manager:"John wick",
+        check: <Checkbox style={{ border: "1ps solid black" }}></Checkbox>,
+        debitor_name: "John Brown",
+        account_manager: "John wick",
         date: "22-sep-2002",
-        promise_to_pay:"add amount",
-        added_on:"20-aug-2002",
-        status:"false",
-        history:<Button style={{ backgroundColor: "#1890ff" ,color:"white"}}>See details</Button>
-      },
-      {
+        promise_to_pay: "add amount",
+        added_on: "20-aug-2002",
+        status: "false",
+        history: <Button style={{ backgroundColor: "#1890ff", color: "white" }}>See details</Button>
+    },
+    {
         key: "5",
-        check:<Checkbox style={{border:"1ps solid black"}}></Checkbox>,
-        debitor_name:"John Brown",
-        account_manager:"John wick",
+        check: <Checkbox style={{ border: "1ps solid black" }}></Checkbox>,
+        debitor_name: "John Brown",
+        account_manager: "John wick",
         date: "22-sep-2002",
-        promise_to_pay:"add amount",
-        added_on:"20-aug-2002",
-        status:"false",
-        history:<Button style={{ backgroundColor: "#1890ff" ,color:"white"}}>See details</Button>
-      },
-      {
+        promise_to_pay: "add amount",
+        added_on: "20-aug-2002",
+        status: "false",
+        history: <Button style={{ backgroundColor: "#1890ff", color: "white" }}>See details</Button>
+    },
+    {
         key: "6",
-        check:<Checkbox style={{border:"1ps solid black"}}></Checkbox>,
-        debitor_name:"John Brown",
-        account_manager:"John wick",
+        check: <Checkbox style={{ border: "1ps solid black" }}></Checkbox>,
+        debitor_name: "John Brown",
+        account_manager: "John wick",
         date: "22-sep-2002",
-        promise_to_pay:"add amount",
-        added_on:"20-aug-2002",
-        status:"false",
-        history:<Button style={{ backgroundColor: "#1890ff" ,color:"white"}}>See details</Button>
-      },
-      {
+        promise_to_pay: "add amount",
+        added_on: "20-aug-2002",
+        status: "false",
+        history: <Button style={{ backgroundColor: "#1890ff", color: "white" }}>See details</Button>
+    },
+    {
         key: "7",
-        check:<Checkbox style={{border:"1ps solid black"}}></Checkbox>,
-        debitor_name:"John Brown",
-        account_manager:"John wick",
+        check: <Checkbox style={{ border: "1ps solid black" }}></Checkbox>,
+        debitor_name: "John Brown",
+        account_manager: "John wick",
         date: "22-sep-2002",
-        promise_to_pay:"add amount",
-        added_on:"20-aug-2002",
-        status:"false",
-        history:<Button style={{ backgroundColor: "#1890ff" ,color:"white"}}>See details</Button>
-      }
+        promise_to_pay: "add amount",
+        added_on: "20-aug-2002",
+        status: "false",
+        history: <Button style={{ backgroundColor: "#1890ff", color: "white" }}>See details</Button>
+    }
 
-  ];
-  
-  const onChangeTableValues = (pagination, filters, sorter, extra) => {
+];
+
+const onChangeTableValues = (pagination, filters, sorter, extra) => {
     console.log("params", pagination, filters, sorter, extra);
-  };
-  
-  const onShowSizeChange = (current, pageSize) => {
+};
+
+const onShowSizeChange = (current, pageSize) => {
     console.log(current, pageSize);
-  };
-  
-  const plainOptions = ["MSME Pay", "All Payments", "Requested Payments"];
-  const options = [
+};
+
+const plainOptions = ["MSME Pay", "All Payments", "Requested Payments"];
+const options = [
     {
-      label: "MSME Pay",
-      value: "MSME Pay",
+        label: "MSME Pay",
+        value: "MSME Pay",
     },
     {
-      label: "All Payments",
-      value: "All Payments",
+        label: "All Payments",
+        value: "All Payments",
     },
     {
-      label: "Requested Payments",
-      value: "Requested Payments",
+        label: "Requested Payments",
+        value: "Requested Payments",
     },
-  ];
-  
+];
+
 
 const menu = (
     <Menu
@@ -438,138 +439,138 @@ const Actions = () => {
                                 <UserOutlined style={{ padding: "0 5px", fontSize: "175%" }} />
                             </span>
                         </Header>
-                        <div className="ant-row" style={{marginTop:"24px",paddingLeft:"1%"}}>
-                            <div className="" style={{width:"95%",display:'flex',justifyContent:'space-between'}}>
-                                <h1 style={{"margin-left": "15px", "font-size": "25px"}}>Tasks</h1>
+                        <div className="ant-row" style={{ marginTop: "24px", paddingLeft: "1%" }}>
+                            <div className="" style={{ width: "95%", display: 'flex', justifyContent: 'space-between' }}>
+                                <h1 style={{ "margin-left": "15px", "font-size": "25px" }}>Tasks</h1>
                                 <div className="buttons-wrapper">
                                     <button type="button" class="ant-btn ant-btn-secondary">
                                         <span role="img" aria-label="setting" class="anticon anticon-setting">
-                                        <span>Export to Excel</span>
-                                    </span>
+                                            <span>Export to Excel</span>
+                                        </span>
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <div className="ant-row"  style={{marginTop:"24px",paddingLeft:"1%"}}>
-                            <div className="ant-col" style={{"padding-left": "10px","padding-right": "10px", "width": "17%"}}>
+                        <div className="ant-row" style={{ marginTop: "24px", paddingLeft: "1%" }}>
+                            <div className="ant-col" style={{ "padding-left": "10px", "padding-right": "10px", "width": "17%" }}>
                                 <div className="ant-card">
-                            <div class="ant-card-body">
-                                <div class="ant-statistic">
-                                    <div class="ant-statistic-title">
-                                        <h5 class="ant-typography" style={{"font-size": "12px", "color": "grey"}}>Open Taks</h5>
+                                    <div class="ant-card-body">
+                                        <div class="ant-statistic">
+                                            <div class="ant-statistic-title">
+                                                <h5 class="ant-typography" style={{ "font-size": "12px", "color": "grey" }}>Open Taks</h5>
+                                            </div>
+                                            <div class="ant-statistic-content" style={{ "font-size": "20px", "font-weight": "bold" }}>
+                                                <span class="ant-statistic-content-value">
+                                                    <span class="ant-statistic-content-value-int">23</span>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
-                                <div class="ant-statistic-content" style={{"font-size": "20px", "font-weight": "bold"}}>
-                                    <span class="ant-statistic-content-value">
-                                        <span class="ant-statistic-content-value-int">23</span>
-                                    </span>
                                 </div>
                             </div>
-                        </div>
-                                </div>
-                            </div>
-                            <div className="ant-col" style={{"padding-left": "10px","padding-right": "10px", "width": "17%"}}>
+                            <div className="ant-col" style={{ "padding-left": "10px", "padding-right": "10px", "width": "17%" }}>
                                 <div className="ant-card">
-                            <div class="ant-card-body">
-                                <div class="ant-statistic">
-                                    <div class="ant-statistic-title">
-                                        <h5 class="ant-typography" style={{"font-size": "12px", "color": "grey"}}>Open Taks</h5>
+                                    <div class="ant-card-body">
+                                        <div class="ant-statistic">
+                                            <div class="ant-statistic-title">
+                                                <h5 class="ant-typography" style={{ "font-size": "12px", "color": "grey" }}>Open Taks</h5>
+                                            </div>
+                                            <div class="ant-statistic-content" style={{ "font-size": "20px", "font-weight": "bold" }}>
+                                                <span class="ant-statistic-content-value">
+                                                    <span class="ant-statistic-content-value-int">23</span>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
-                                <div class="ant-statistic-content" style={{"font-size": "20px", "font-weight": "bold"}}>
-                                    <span class="ant-statistic-content-value">
-                                        <span class="ant-statistic-content-value-int">23</span>
-                                    </span>
                                 </div>
                             </div>
-                        </div>
-                                </div>
-                            </div>
-                            <div className="ant-col" style={{"padding-left": "10px","padding-right": "10px", "width": "17%"}}>
+                            <div className="ant-col" style={{ "padding-left": "10px", "padding-right": "10px", "width": "17%" }}>
                                 <div className="ant-card">
-                            <div class="ant-card-body">
-                                <div class="ant-statistic">
-                                    <div class="ant-statistic-title">
-                                        <h5 class="ant-typography" style={{"font-size": "12px", "color": "grey"}}>Open Taks</h5>
+                                    <div class="ant-card-body">
+                                        <div class="ant-statistic">
+                                            <div class="ant-statistic-title">
+                                                <h5 class="ant-typography" style={{ "font-size": "12px", "color": "grey" }}>Open Taks</h5>
+                                            </div>
+                                            <div class="ant-statistic-content" style={{ "font-size": "20px", "font-weight": "bold" }}>
+                                                <span class="ant-statistic-content-value">
+                                                    <span class="ant-statistic-content-value-int">23</span>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
-                                <div class="ant-statistic-content" style={{"font-size": "20px", "font-weight": "bold"}}>
-                                    <span class="ant-statistic-content-value">
-                                        <span class="ant-statistic-content-value-int">23</span>
-                                    </span>
                                 </div>
                             </div>
                         </div>
+                        <div className="ant-row" style={{ marginTop: "24px", paddingLeft: "1%", width: "95%", marginLeft: "auto", marginRight: "auto" }}>
+                            <div style={{ "display": "flex", "flex-direction": "column" }}>
+                                <p style={{ "margin": " 0px;" }}>Search as per client details</p>
+                                <input placeholder="Search according to client name,value" class="ant-input" type="text" value="" style={{ "margin": "0px 15px 0px 0px", "width": "100vw", "max-width": "600px", "height": "40px" }} />
+                            </div>
+                        </div>
+                        <div className="ant-row" style={{ marginTop: "24px", marginBottom: "24px", paddingLeft: "1%", width: "95%", marginLeft: "auto", marginRight: "auto", justifyContent: "space-between" }}>
+                            <div style={{ display: "flex", gap: "0.5rem" }}>
+                                <div class="buttons-wrapper">
+                                    <button type="button" class="ant-btn ant-btn" style={{ backgroundColor: "transparent", color: "#1890ff" }}>
+                                        <span role="img" aria-label="setting" class="anticon anticon-setting">
+                                            <span>Closed Tasks</span>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="buttons-wrapper">
+                                    <button type="button" class="ant-btn ant-btn" style={{ backgroundColor: "transparent", color: "#1890ff" }}>
+                                        <span role="img" aria-label="setting" class="anticon anticon-setting">
+                                            <span>Temporary Tasks</span>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="buttons-wrapper">
+                                    <button type="button" class="ant-btn ant-btn" style={{ backgroundColor: "transparent", color: "#1890ff" }}>
+                                        <span role="img" aria-label="setting" class="anticon anticon-setting">
+                                            <span>Open Taks</span>
+                                        </span>
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-                        <div className="ant-row"  style={{marginTop:"24px",paddingLeft:"1%",width:"95%",marginLeft:"auto",marginRight:"auto"}}>
-                        <div style={{"display": "flex", "flex-direction": "column"}}>
-                            <p style={{"margin":" 0px;"}}>Search as per client details</p>
-                                <input placeholder="Search according to client name,value" class="ant-input" type="text" value="" style={{"margin":"0px 15px 0px 0px","width":"100vw","max-width":"600px","height": "40px"}} />
-                            </div>
-                        </div>
-                        <div className="ant-row" style={{marginTop:"24px",marginBottom:"24px",paddingLeft:"1%",width:"95%",marginLeft:"auto",marginRight:"auto",justifyContent:"space-between"}}>
-                           <div style={{display:"flex",gap:"0.5rem"}}>
-                            <div class="buttons-wrapper">
-                                 <button type="button" class="ant-btn ant-btn" style={{backgroundColor:"transparent",color:"#1890ff"}}>
-                                     <span role="img" aria-label="setting" class="anticon anticon-setting">
-                                         <span>Closed Tasks</span>
-                                     </span>
-                                 </button>
-                            </div>
-                            <div class="buttons-wrapper">
-                                 <button type="button" class="ant-btn ant-btn" style={{backgroundColor:"transparent",color:"#1890ff"}}>
-                                     <span role="img" aria-label="setting" class="anticon anticon-setting">
-                                         <span>Temporary Tasks</span>
-                                     </span>
-                                 </button>
-                            </div>
-                            <div class="buttons-wrapper">
-                                 <button type="button" class="ant-btn ant-btn" style={{backgroundColor:"transparent",color:"#1890ff"}}>
-                                     <span role="img" aria-label="setting" class="anticon anticon-setting">
-                                         <span>Open Taks</span>
-                                     </span>
-                                 </button>
-                            </div>
-                            </div>
-                            <div style={{display:"flex",gap:"0.5rem"}}>
-                            <div class="buttons-wrapper">
-                                 <button type="button" class="ant-btn ant-btn-primary">
-                                     <span role="img" aria-label="setting" class="anticon anticon-setting">
-                                         <span>Closed Tasks</span>
-                                     </span>
-                                 </button>
-                            </div>
-                            <div class="buttons-wrapper">
-                                 <button type="button" class="ant-btn ant-btn-primary">
-                                     <span role="img" aria-label="setting" class="anticon anticon-setting">
-                                         <span>Temporary Tasks</span>
-                                     </span>
-                                 </button>
-                            </div>
-                            <div class="buttons-wrapper">
-                                 <button type="button" class="ant-btn ant-btn-primary">
-                                     <span role="img" aria-label="setting" class="anticon anticon-setting">
-                                         <span>Open Taks</span>
-                                     </span>
-                                 </button>
-                            </div>
+                            <div style={{ display: "flex", gap: "0.5rem" }}>
+                                <div class="buttons-wrapper">
+                                    <button type="button" class="ant-btn ant-btn-primary">
+                                        <span role="img" aria-label="setting" class="anticon anticon-setting">
+                                            <span>Closed Tasks</span>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="buttons-wrapper">
+                                    <button type="button" class="ant-btn ant-btn-primary">
+                                        <span role="img" aria-label="setting" class="anticon anticon-setting">
+                                            <span>Temporary Tasks</span>
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="buttons-wrapper">
+                                    <button type="button" class="ant-btn ant-btn-primary">
+                                        <span role="img" aria-label="setting" class="anticon anticon-setting">
+                                            <span>Open Taks</span>
+                                        </span>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                         <Table
-                style={{ margin: "auto 2%" }}
-                columns={columns}
-                dataSource={data}
-                onChange={onChangeTableValues}
-                pagination={{
-                  size: "small",
-                }}
-              />
-                </Layout>
-                
+                            style={{ margin: "auto 2%" }}
+                            columns={columns}
+                            dataSource={data}
+                            onChange={onChangeTableValues}
+                            pagination={{
+                                size: "small",
+                            }}
+                        />
+                    </Layout>
+
                 </Layout>
             </div>
-        <div>
-    </div>
-        
+            <div>
+            </div>
+
         </div>
     );
 };
