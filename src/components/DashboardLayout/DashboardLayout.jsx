@@ -52,31 +52,90 @@ const DashboardLayout = () => {
   return (
     <div class="components-layout-demo-custom-trigger">
       <Layout>
-        <Sider trigger={null} collapsible collapsed={collapsed} style={{backgroundColor: 'rgb(55, 58, 148)'}}>
-          <div className="logo" />
-          <Menu
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={["1"]}
-            items={[
-              {
-                key: "1",
-                icon: <UserOutlined />,
-                label: "nav 1",
-              },
-              {
-                key: "2",
-                icon: <VideoCameraOutlined />,
-                label: "nav 2",
-              },
-              {
-                key: "3",
-                icon: <UploadOutlined />,
-                label: "nav 3",
-              },
-            ]}
-          />
-        </Sider>
+      <Sider
+            trigger={null}
+            collapsible
+            collapsed={collapsed}
+            style={{
+              overflow: "auto",
+              height: "100vh",
+              position: "fixed",
+              left: 0,
+              top: 0,
+              bottom: 0,
+              backgroundColor: "rgb(55, 58, 148)",
+            }}
+          >
+            <div className="logo" />
+            <Menu
+              theme="dark"
+              mode="inline"
+              defaultSelectedKeys={["1"]}
+              style={{ height: "100vh" }}
+              items={[
+                {
+                  key: "1",
+                  icon: <UserOutlined />,
+                  label: <NavLink className="nav-link" to="/dashboard" variant="body2">Dashboard</NavLink>
+                },
+                {
+                  key: "2",
+                  icon: <VideoCameraOutlined />,
+                  label: <NavLink className="nav-link" to="/collect" variant="body2">Collect</NavLink>
+                },
+                {
+                  key: "3",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/e-invoice" variant="body2">E-Invoice</NavLink>
+                },
+                {
+                  key: "4",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/invoices" variant="body2">Invoices</NavLink>
+                },
+                {
+                  key: "5",
+                  icon: <VideoCameraOutlined />,
+                  label: <NavLink className="nav-link" to="/receipt" variant="body2">Receipt</NavLink>
+                },
+                {
+                  key: "6",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/parties" variant="body2">Parties</NavLink>
+                },
+                {
+                  key: "7",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/reports" variant="body2">Reports</NavLink>
+                },
+                {
+                  key: "8",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/roi-calculator" variant="body2">ROI Calculator</NavLink>
+                },
+                {
+                  key: "9",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/instant-invoice-loans" variant="body2">Instant Invoice Loans</NavLink>
+                },
+                {
+                  key: "10",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/start-recovery-proceedings" variant="body2">Start Recovery Proceedings</NavLink>
+                },
+                {
+                  key: "11",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/credit-ratings" variant="body2">Credit Ratings</NavLink>
+                },
+                {
+                  key: "12",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/refer-a-friend" variant="body2">Refer A Friend</NavLink>
+                },
+              ]}
+            />
+          </Sider>
         <Layout className="site-layout">
         <Header
               className="site-layout-background-header"

@@ -121,7 +121,7 @@ const E_Invoices = () => {
     <div>
       <div class="components-layout-demo-custom-trigger">
         <Layout>
-          <Sider
+        <Sider
             trigger={null}
             collapsible
             collapsed={collapsed}
@@ -145,52 +145,62 @@ const E_Invoices = () => {
                 {
                   key: "1",
                   icon: <UserOutlined />,
-                  label: "Dashboard",
+                  label: <NavLink className="nav-link" to="/dashboard" variant="body2">Dashboard</NavLink>
                 },
                 {
                   key: "2",
                   icon: <VideoCameraOutlined />,
-                  label: "Collect",
+                  label: <NavLink className="nav-link" to="/collect" variant="body2">Collect</NavLink>
                 },
                 {
                   key: "3",
                   icon: <UploadOutlined />,
-                  label: "Receipt",
+                  label: <NavLink className="nav-link" to="/e-invoice" variant="body2">E-Invoice</NavLink>
                 },
                 {
                   key: "4",
                   icon: <UploadOutlined />,
-                  label: "Receipt",
+                  label: <NavLink className="nav-link" to="/invoices" variant="body2">Invoices</NavLink>
                 },
                 {
                   key: "5",
                   icon: <VideoCameraOutlined />,
-                  label: "Actions",
+                  label: <NavLink className="nav-link" to="/receipt" variant="body2">Receipt</NavLink>
                 },
                 {
                   key: "6",
                   icon: <UploadOutlined />,
-                  label: "Incentives",
+                  label: <NavLink className="nav-link" to="/parties" variant="body2">Parties</NavLink>
                 },
                 {
                   key: "7",
                   icon: <UploadOutlined />,
-                  label: "Communication",
+                  label: <NavLink className="nav-link" to="/reports" variant="body2">Reports</NavLink>
                 },
                 {
                   key: "8",
                   icon: <UploadOutlined />,
-                  label: "Pay",
+                  label: <NavLink className="nav-link" to="/roi-calculator" variant="body2">ROI Calculator</NavLink>
+                },
+                {
+                  key: "9",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/instant-invoice-loans" variant="body2">Instant Invoice Loans</NavLink>
+                },
+                {
+                  key: "10",
+                  icon: <UploadOutlined />,
+                  label: <NavLink className="nav-link" to="/start-recovery-proceedings" variant="body2">Start Recovery Proceedings</NavLink>
                 },
                 {
                   key: "11",
                   icon: <UploadOutlined />,
-                  label: "Stock Items",
+                  label: <NavLink className="nav-link" to="/credit-ratings" variant="body2">Credit Ratings</NavLink>
                 },
                 {
                   key: "12",
                   icon: <UploadOutlined />,
-                  label: "unknown",
+                  label: <NavLink className="nav-link" to="/refer-a-friend" variant="body2">Refer A Friend</NavLink>
                 },
               ]}
             />
