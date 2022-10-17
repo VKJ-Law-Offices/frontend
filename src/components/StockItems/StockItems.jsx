@@ -414,7 +414,7 @@ const StockItems = () => {
                                         <div style={{
                                             display: "flex", width: "60px",
                                             marginLeft: "auto",
-                                            marginRight: "70px",
+                                            marginRight: "auto",
                                             marginTop: "32px"
                                         }}>
                                             <Button
@@ -425,7 +425,29 @@ const StockItems = () => {
                                                     color: "#000000",
                                                     border: "none",
                                                 }}
-                                            ><a style={{ color: "#000000" }}>Invoice Settings</a>&nbsp;
+                                            ><a style={{ color: "#000000" }}>Item Settings</a>&nbsp;
+                                                <FiSettings />
+                                            </Button>
+                                            <Button
+                                                type="primary"
+                                                style={{
+                                                    margin: "0 1vw",
+                                                    backgroundColor: "#d8d7df",
+                                                    color: "#000000",
+                                                    border: "none",
+                                                }}
+                                            ><a style={{ color: "#000000" }}>Bulk Edit Items</a>&nbsp;
+                                                <FiSettings />
+                                            </Button>
+                                            <Button
+                                                type="primary"
+                                                style={{
+                                                    margin: "0 1vw",
+                                                    backgroundColor: "#d8d7df",
+                                                    color: "#000000",
+                                                    border: "none",
+                                                }}
+                                            ><a style={{ color: "#000000" }}>Bulk Add Items</a>&nbsp;
                                                 <FiSettings />
                                             </Button>
                                             <Button
@@ -435,8 +457,7 @@ const StockItems = () => {
                                                     backgroundColor: "rgb(40, 52, 149)",
                                                     border: "none",
                                                 }}
-                                            >
-                                                <AiOutlineArrowUp />&nbsp;<a style={{ color: "#ffffff" }}>Create Sales Invoices</a>
+                                            ><a style={{ color: "#ffffff" }}>Create Items</a>
                                             </Button>
                                         </div>
 
@@ -447,7 +468,7 @@ const StockItems = () => {
                             <Row style={{ marginBottom: "1%", marginTop: "-3%" }}>
                                 <div style={{ display: "flex" }}>
                                     <Input
-                                        placeholder="Search by Debtor Name"
+                                        placeholder="Search as per Item Name"
                                         style={{
                                             margin: "5% 15px 0 0",
                                             width: "320px",
@@ -455,7 +476,7 @@ const StockItems = () => {
                                         }}
                                     />
                                     <Input
-                                        placeholder="Filter via Invoice Date"
+                                        placeholder="Filter Date"
                                         style={{
                                             margin: "5% 15px 0 0",
                                             width: "280px",
@@ -463,7 +484,7 @@ const StockItems = () => {
                                         }}
                                     />
                                     <Input
-                                        placeholder="Filter via Invoice Due Date"
+                                        placeholder="Filter Low Stock"
                                         style={{
                                             margin: "5% 15px 0 0",
                                             width: "280px",
@@ -471,7 +492,7 @@ const StockItems = () => {
                                         }}
                                     />
                                     <Input
-                                        placeholder="Filter via Tally Groups"
+                                        placeholder="Filter via Expiring Stock"
                                         style={{
                                             margin: "5% 15px 0 0",
                                             width: "220px",

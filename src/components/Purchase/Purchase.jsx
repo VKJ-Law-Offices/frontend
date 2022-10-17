@@ -522,7 +522,7 @@ const Purchase = () => {
                             <Row style={{ marginBottom: "1%", marginTop: "-3%" }}>
                                 <div style={{ display: "flex" }}>
                                     <Input
-                                        placeholder="Search by Debtor Name"
+                                        placeholder="Search by Name"
                                         style={{
                                             margin: "5% 15px 0 0",
                                             width: "320px",
@@ -530,7 +530,7 @@ const Purchase = () => {
                                         }}
                                     />
                                     <Input
-                                        placeholder="Filter via Invoice Date"
+                                        placeholder="Filter via Date"
                                         style={{
                                             margin: "5% 15px 0 0",
                                             width: "280px",
@@ -538,15 +538,7 @@ const Purchase = () => {
                                         }}
                                     />
                                     <Input
-                                        placeholder="Filter via Invoice Due Date"
-                                        style={{
-                                            margin: "5% 15px 0 0",
-                                            width: "280px",
-                                            height: "40px",
-                                        }}
-                                    />
-                                    <Input
-                                        placeholder="Filter via Tally Groups"
+                                        placeholder="Filter via Time"
                                         style={{
                                             margin: "5% 15px 0 0",
                                             width: "220px",
