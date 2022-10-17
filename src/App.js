@@ -2,6 +2,7 @@ import './App.css';
 import { Navigate, Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import SignIn from './components/SignIn/SignIn'
 import SignUp from './components/SignUp/SignUp'
+import SignOut from './components/SignOut/SignOut'
 import Homepage from './components/Homepage/Homepage'
 import Dashboard from './components/Dashboard/Dashboard'
 import Collect from './components/Collect/Collect'
@@ -33,6 +34,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/signout" element={<SignOut />} />
           <Route path="/settings" element={<Settings />} />
           <Route path="/parties" element={<Parties />} />
           <Route path="/profile" element={<Profile />} />
