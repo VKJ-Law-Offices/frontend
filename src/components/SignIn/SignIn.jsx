@@ -107,7 +107,7 @@ const SignIn = () => {
     const data = await res.json();
 
     if (!data.flag) {
-      if (data.status === "Error") {
+      if (data.status === "OK") {
         message.error(data.message);
         console.log(data.message);
       } else {

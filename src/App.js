@@ -64,7 +64,7 @@ function App() {
           <Route path="/refer-a-friend" element={<ReferAFriend />} />
           <Route path="/privacy_policy" element={<PrivacyPolicy />} />
           <Route path="/terms_and_conditions" element={<TermsAndConditions />} />
-          <Route path="/verify/mailverification/:userid/:token" element={<EmailVerify />} />
+          <Route path="/mailverification/:userid/:token" element={<EmailVerify />} />
           <Route path='/purchase' element={<Purchase />}/>
           <Route path='/stock_items' element={<StockItems />}/>
           <Route path='/home' element={<Home />}/>
