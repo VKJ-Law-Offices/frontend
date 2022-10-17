@@ -84,8 +84,15 @@ const Homepage = () => {
         >
           CreateInvoice
         </a>
+        <a
+          className="App-link"
+          href="/home"
+          rel="noopener noreferrer"
+        >
+          Home
+        </a>
       </header>
-</div>
+    </div>
   )
 }
 

@@ -28,6 +28,7 @@ import TermsAndConditions from './components/TermsAndConditions/TermsAndConditio
 import css from "./styles/styles.css"
 import Actions from './components/temp/Actions/Actions';
 import Communication from './components/temp/Communication/Communication';
+import Home from './components/home/home';
 
 function App() {
   return (
@@ -44,10 +45,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/collect" element={<Collect />} />
           <Route path="/receipt" element={<Receipt />} />
-          <Route path='/actions' exact element={<Actions/>}/>
-          <Route path='/communcication' exact element={<Communication/>}/>
+          <Route path='/actions' exact element={<Actions />} />
+          <Route path='/communcication' exact element={<Communication />} />
           <Route path="/reports" element={<Reports />} />
-          <Route path="/create-invoice" element={<CreateInvoice/>}/>
+          <Route path="/create-invoice" element={<CreateInvoice />} />
           <Route path="/invoices" element={<Invoices />} />
           <Route path="/e-invoice" element={<E_Invoice />} />
           <Route path="/debtor_summary" element={<DebtorSummary />} />
