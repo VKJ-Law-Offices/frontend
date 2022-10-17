@@ -20,6 +20,7 @@ import TermsAndConditions from './components/TermsAndConditions/TermsAndConditio
 import css from "./styles/styles.css"
 import Actions from './components/temp/Actions/Actions';
 import Communication from './components/temp/Communication/Communication';
+import Home from './components/home/home';
 
 function App() {
   return (
@@ -34,10 +35,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/collect" element={<Collect />} />
           <Route path="/receipt" element={<Receipt />} />
-          <Route path='/actions' exact element={<Actions/>}/>
-          <Route path='/communcication' exact element={<Communication/>}/>
+          <Route path='/actions' exact element={<Actions />} />
+          <Route path='/communcication' exact element={<Communication />} />
           <Route path="/reports" element={<Reports />} />
-          <Route path="/create-invoice" element={<CreateInvoice/>}/>
+          <Route path="/create-invoice" element={<CreateInvoice />} />
           <Route path="/invoices" element={<Invoices />} />
           <Route path="/debtor_summary" element={<DebtorSummary />} />
           <Route path="/sales_manager_report" element={<SalesManagerReport />} />
@@ -45,7 +46,8 @@ function App() {
           <Route path="/privacy_policy" element={<PrivacyPolicy />} />
           <Route path="/terms_and_conditions" element={<TermsAndConditions />} />
           <Route path="/verify/mailverification/:userid/:token" element={<EmailVerify />} />
-          <Route path="*" element={ <Navigate to="/" /> } />
+          <Route path="*" element={<Navigate to="/" />} />
+          <Route path='/home' element={<Home />}/>
         </Routes>
       </Router>
     </div>
