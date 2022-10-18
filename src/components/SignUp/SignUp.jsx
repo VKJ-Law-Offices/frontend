@@ -49,7 +49,7 @@ const SignUp = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
+      body: JSON.parse({
         name,
         email,
         phone,
@@ -77,7 +77,7 @@ const SignUp = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
+        body: JSON.parse({
           email,
           reason
         }),
@@ -111,7 +111,7 @@ const SignUp = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
+      body: JSON.parse({
         email,
         reason
       }),

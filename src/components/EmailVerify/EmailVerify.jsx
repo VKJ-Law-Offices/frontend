@@ -45,7 +45,7 @@ const EmailVerify = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
+      body: JSON.parse({
         userid,
         newPassword,
       }),
@@ -86,7 +86,7 @@ const EmailVerify = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
+      body: JSON.parse({
         userid,
         token,
       }),
