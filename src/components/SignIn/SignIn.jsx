@@ -51,10 +51,10 @@ const SignIn = () => {
         "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": true
       },
-      body: {
-        email:JSON.stringify(values.email),
-        password:JSON.stringify(values.password),
-      }
+      body: JSON.stringify({
+        email:values.email,
+        password:values.password,
+      })
     });
 
     console.log(JSON.stringify({
