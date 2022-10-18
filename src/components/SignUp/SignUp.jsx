@@ -44,7 +44,7 @@ const SignUp = () => {
       return;
     }
 
-    const res = await fetch("https://msme-backend.herokuapp.com/api/users/create", {
+    const res = await fetch("/api/users/create", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json", 
@@ -74,7 +74,7 @@ const SignUp = () => {
     } else {
       message.success(data.message);
 
-      const res = await fetch("https://msme-backend.herokuapp.com/api/users/send/verificationlink", {
+      const res = await fetch("/api/users/send/verificationlink", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -110,7 +110,7 @@ const SignUp = () => {
       message.warning("Please enter a valid email");
       return;
     }
-    const res = await fetch("https://msme-backend.herokuapp.com/api/users/send/verificationlink", {
+    const res = await fetch("/api/users/send/verificationlink", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
