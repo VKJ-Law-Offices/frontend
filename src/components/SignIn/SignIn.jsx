@@ -44,7 +44,7 @@ const SignIn = () => {
       return;
     }
 
-    const res = await fetch("/login", {
+    const res = await fetch("https://msme-backend.herokuapp.com/login", {
       method: "PUT",
       mode:"cors",
       headers: {
@@ -104,7 +104,7 @@ const SignIn = () => {
       return;
     }
 
-    const res = await fetch("/api/users/send/verificationlink", {
+    const res = await fetch("https://msme-backend.herokuapp.com/api/users/send/verificationlink", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
