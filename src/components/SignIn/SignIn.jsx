@@ -3,6 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { message, Button, Modal } from "antd";
 import "antd/dist/antd.css";
 
+
 const SignIn = () => {
   const navigate = useNavigate();
 
@@ -43,16 +44,16 @@ const SignIn = () => {
       return;
     }
 
-    const res = await fetch("/api/users/login", {
+    const res = await fetch("https://msme-backend.herokuapp.com/api/users/login", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Credentials": true
       },
-      body: JSON.stringify({
-        email:values.email,
-        password:values.password,
-      }),
+      body: {
+        email:JSON.stringify(values.email),
+        password:JSON.stringify(values.password),
+      }
     });
 
     console.log(JSON.stringify({
@@ -60,9 +61,11 @@ const SignIn = () => {
       password:values.password,
     }));
 
+    // console.log(JSON.parse([]));
     const data = await res.json();
+    
 
-    if (!data.flag) {
+    if (!data.flag) { 
       message.error(data.error);
       console.log(data.error);
     } else {
