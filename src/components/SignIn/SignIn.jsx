@@ -62,7 +62,8 @@ const SignIn = () => {
       console.log(data.error);
     } else {
       localStorage.setItem("isLoggedIn", true);
-      localStorage.setItem("userDetails", data.body.userDetails);
+      localStorage.setItem("userDetails", JSON.stringify(data.body.userDetails.Item));
+      console.log(data.body.userDetails.Item);
 
       message.success(data.message);
       console.log(data.message);

@@ -54,12 +54,12 @@ const Profile = () => {
 
   useEffect(()=>{
     if(localStorage.getItem("isLoggedIn")){
-      setUserDetails(JSON.stringify(localStorage.getItem("userDetails")));
+      setUserDetails(JSON.parse(localStorage.getItem("userDetails")));
     }
   },[])
+  console.log(userDetails)
 
   return (
-
     <div>
       <div class="components-layout-demo-custom-trigger">
         <Layout>
@@ -311,7 +311,7 @@ const Profile = () => {
                             </h1>
                             <p style={{width:"400px"}}>
                                 {/* accounts@vkjlaw.com */}
-                                {userDetails.email}
+                                {userDetails.email_id}
                             </p>
                         </div>
                         
@@ -366,7 +366,7 @@ const Profile = () => {
                         Referrals
                     </h1>
                     <p>
-                        Referral Code: <b>7MGVE4</b>
+                        Referral Code: <b>{userDetails.referalCode}</b>
                     </p>
                 </div>
                 </div>
