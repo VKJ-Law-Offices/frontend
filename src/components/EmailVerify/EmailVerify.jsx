@@ -40,7 +40,7 @@ const EmailVerify = () => {
       return;
     }
 
-    const res = await fetch("/api/users/forget/password", {
+    const res = await fetch("https://msme-backend.herokuapp.com/api/users/forget/password", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const EmailVerify = () => {
   const reason = params.get("reason");
 
   const verifyEmailURL = async () => {
-    const url = `/api/users/verify/mailverification`;
+    const url = `https://msme-backend.herokuapp.com/api/users/verify/mailverification`;
 
     const res = await fetch(url, {
       method: "PUT",
