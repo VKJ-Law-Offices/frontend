@@ -13,8 +13,8 @@ const SignIn = () => {
     password: "",
   });
 
-  const handleChangeValues = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
+  const handleChangeValues = (props)=> (event) => {
+    setValues({ ...values, [props]: event.target.value });
   };
 
   const [values2, setValues2] = useState({
@@ -28,17 +28,17 @@ const SignIn = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { email, password } = values;
+    // const { email, password } = values;
 
     const regex_email =
       /^([a-z A-Z 0-9 \.-_]+)@([a-z A-Z 0-9 \.-_]+)\.([a-z]+)(\.[a-z]{2,5})?$/;
 
-    if (!regex_email.test(email)) {
+    if (!regex_email.test(values.email)) {
       message.warning("Please enter a valid email");
       return;
     }
 
-    if (!password.trim()) {
+    if (!values.password.trim()) {
       message.warning("Please fill the entries properly");
       return;
     }
@@ -50,10 +50,15 @@ const SignIn = () => {
         "Access-Control-Allow-Credentials": true
       },
       body: JSON.stringify({
-        email,
-        password,
+        email:values.email,
+        password:values.password,
       }),
     });
+
+    console.log(JSON.stringify({
+      email:values.email,
+      password:values.password,
+    }));
 
     const data = await res.json();
 
