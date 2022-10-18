@@ -16,7 +16,7 @@ const SignUp = () => {
   const handleChangeValues = (prop) => (event) => {
     setValues({ ...values, [prop]: event.target.value });
   };
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -47,9 +47,11 @@ const SignUp = () => {
     const res = await fetch("/api/users/create", {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json", 
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true
       },
-      body: JSON.parse({
+      body: JSON.stringify({
         name,
         email,
         phone,
@@ -76,8 +78,10 @@ const SignUp = () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true
         },
-        body: JSON.parse({
+        body: JSON.stringify({
           email,
           reason
         }),
@@ -86,15 +90,15 @@ const SignUp = () => {
       const data2 = await res.json();
       console.log(data2);
 
-      if(!data2.flag){
+      if (!data2.flag) {
         message.error("User dose not exist");
-      }else{
+      } else {
         message.success(data2.message);
-        }
+      }
     }
-  };  
-  
-  const handleResendMail = async() =>{
+  };
+
+  const handleResendMail = async () => {
     const { email } = values;
 
     const reason = "signup"
@@ -110,8 +114,10 @@ const SignUp = () => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true
       },
-      body: JSON.parse({
+      body: JSON.stringify({
         email,
         reason
       }),
@@ -121,8 +127,8 @@ const SignUp = () => {
     console.log(data);
 
     if (!data.flag) {
-        message.error(data.message);
-        console.log(data.message);
+      message.error(data.message);
+      console.log(data.message);
     } else {
       message.success(data.message);
       console.log(data.message);

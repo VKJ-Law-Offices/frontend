@@ -54,7 +54,7 @@ const Profile = () => {
 
   useEffect(()=>{
     if(localStorage.getItem("isLoggedIn")){
-      setUserDetails(JSON.parse(localStorage.getItem("userDetails")));
+      setUserDetails(JSON.stringify(localStorage.getItem("userDetails")));
     }
   },[])
 

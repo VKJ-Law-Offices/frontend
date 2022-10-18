@@ -44,8 +44,10 @@ const EmailVerify = () => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true
       },
-      body: JSON.parse({
+      body: JSON.stringify({
         userid,
         newPassword,
       }),
@@ -84,9 +86,10 @@ const EmailVerify = () => {
     const res = await fetch(url, {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true
       },
-      body: JSON.parse({
+      body: JSON.stringify({
         userid,
         token,
       }),

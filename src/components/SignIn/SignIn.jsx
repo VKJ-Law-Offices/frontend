@@ -46,9 +46,10 @@ const SignIn = () => {
     const res = await fetch("/api/users/login", {
       method: "PUT",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json", "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true
       },
-      body: JSON.parse({
+      body: JSON.stringify({
         email,
         password,
       }),
@@ -97,8 +98,10 @@ const SignIn = () => {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": true
       },
-      body: JSON.parse({
+      body: JSON.stringify({
         email,
         reason,
       }),
