@@ -10,8 +10,8 @@ const Homepage = () => {
           onBack={() => window.history.back()}
           title="MSME Payments"
           extra={[
-            <Button key="2" href="https://www.msmepayments.com/signup">Sign In</Button>,
-            <Button key="1" type="primary" href="https://www.msmepayments.com/signin">Sign Up</Button>,
+            <Button key="2" href="https://www.msmepayments.com/signin">Sign In</Button>,
+            <Button key="1" type="primary" href="https://www.msmepayments.com/signup">Sign Up</Button>,
           ]}
         >
         </PageHeader>

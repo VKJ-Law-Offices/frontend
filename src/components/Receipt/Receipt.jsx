@@ -487,7 +487,7 @@ const Receipt = () => {
               <Row>
                 <div style={{ display: "flex", width: "95%" }}>
                   <h1 style={{ marginRight: "20%", fontSize: "25px" }}>
-                    Payment Received From Credflow Online Link
+                    Payment Received 
                   </h1>
                   <div
                     style={{
