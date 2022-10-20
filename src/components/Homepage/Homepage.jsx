@@ -7,6 +7,8 @@ import { AiFillLinkedin } from 'react-icons/ai';
 import { GoVerified } from 'react-icons/go';
 import { GrCertificate } from 'react-icons/gr';
 import { TbFileCertificate } from 'react-icons/tb';
+import { TiTick } from 'react-icons/ti';
+
 
 
 import "./Homepage.css"
@@ -64,14 +66,14 @@ const Homepage = () => {
         <img src="/images/image2.png" style={{ width: "250px", marginTop: "45px" }} />
         <div style={{ width: "30%", marginTop: "75px" }}>
           <h2>E-invoicing & Accounting Fast And Easy</h2>
-          <p style={{ textAlign: "justify" }}> Generate e-invoices with easy tips <br />Smart Validation <br />Bulk e-invoices generaion <br />Cost-effective <br />Easily trackable <br />Multiple GSTIN <br />Recurring e-invoices</p>
+          <p style={{ textAlign: "justify" }}> <TiTick/>Generate e-invoices with easy tips <br /><TiTick/>Smart Validation <br /><TiTick/>Bulk e-invoices generaion <br /><TiTick/>Cost-effective <br />Easily trackable <br /><TiTick/>Multiple GSTIN <br /><TiTick/>Recurring e-invoices</p>
         </div>
       </div>
 
       <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
         <div style={{ width: "30%", marginTop: "75px" }}>
           <h2>Instant Loan With Invoice Discounting</h2>
-          <p style={{ textAlign: "justify" }}>Get a short-term loan with unpaid dues <br />Collateral free <br />Unlock fund quickly <br />Easily accessible <br />Get up to 90% of your dues <br />Get a loan in 24-72 hours</p>
+          <p style={{ textAlign: "justify" }}><TiTick/>Get a short-term loan with unpaid dues <br /><TiTick/>Collateral free <br /><TiTick/>Unlock fund quickly <br /><TiTick/>Easily accessible <br /><TiTick/>Get up to 90% of your dues <br /><TiTick/>Get a loan in 24-72 hours</p>
         </div>
         <img src="/images/image3.png" style={{ width: "450px" }} />
       </div>
@@ -80,7 +82,7 @@ const Homepage = () => {
         <img src="/images/image6.png" style={{ width: "400px", marginTop: "45px" }} />
         <div style={{ width: "30%", marginTop: "75px" }}>
           <h2>Money Recovery Tool</h2>
-          <p style={{ textAlign: "justify" }}>Automatic payment reminder on SMS, Emails & Calls <br />Auto sync with Tally <br />Auto-generated report <br />One-click sharing information <br />Tracking communication history to customers <br />Can access it from anywhere <br />Simple to Run <br />And has many more features....</p>
+          <p style={{ textAlign: "justify" }}><TiTick/>Automatic payment reminder on SMS, Emails & Calls <br />Auto sync with Tally <br />Auto-generated report <br /><TiTick/>One-click sharing information <br /><TiTick/>Tracking communication history to customers <br /><TiTick/>Can access it from anywhere <br /><TiTick/>Simple to Run <br /><TiTick/>And has many more features....</p>
         </div>
       </div>
 
