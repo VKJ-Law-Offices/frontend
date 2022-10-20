@@ -485,8 +485,7 @@ const StockItems = () => {
                                         }}
                                     >
                                         <div>
-                                            <h2 style={{ fontSize: '25px', fontWeight: '900', marginTop: "10px" }}>Sales Invoices</h2>
-                                            <h1 style={{ fontSize: '15px', marginTop: "-8%" }}>Bill Your Sales to Customers</h1>
+                                            <h2 style={{ fontSize: '25px', fontWeight: '900', marginTop: "10px" }}>Stock Items</h2>
                                         </div>
                                         <div style={{
                                             display: "flex", width: "60px",

@@ -1,4 +1,14 @@
 import React from 'react';
+import { AiFillTwitterSquare } from 'react-icons/ai';
+import { AiFillFacebook } from 'react-icons/ai';
+import { AiFillInstagram } from 'react-icons/ai';
+import { AiFillYoutube } from 'react-icons/ai';
+import { AiFillLinkedin } from 'react-icons/ai';
+import { GoVerified } from 'react-icons/go';
+import { GrCertificate } from 'react-icons/gr';
+import { TbFileCertificate } from 'react-icons/tb';
+
+
 import "./Homepage.css"
 import { Button, Descriptions, PageHeader, Card } from 'antd';
 const Homepage = () => {
@@ -10,106 +20,94 @@ const Homepage = () => {
           onBack={() => window.history.back()}
           title="MSME Payments"
           extra={[
-            <Button key="2" href="https://www.msmepayments.com/signup">Sign In</Button>,
-            <Button key="1" type="primary" href="https://www.msmepayments.com/signin">Sign Up</Button>,
+            <Button key="2" href="https://www.msmepayments.com/signin">Sign In</Button>,
+            <Button key="1" type="primary" href="https://www.msmepayments.com/signup">Sign Up</Button>,
           ]}
         >
         </PageHeader>
       </div>
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <div style={{ width: "30%", marginTop: "75px" }}>
-          <h2>Are You Making This Mistake?</h2>
-          <p style={{ textAlign: "justify" }}>If you are reading this, you are probably tossing and turning at night, worrying about overdue payments. Avoiding bad debt, reducing your financial burden, and increasing your profitability are some of the most crucial aspects of your MSME. But following up with clients who are not eager to pay and delaying new projects due to overdue payments is frustrating and undermines your chances of success and growth.</p>
-        </div>
-        <img src="/images/image2.png" />
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <img src="/images/image3.png" />
-        <div style={{ width: "30%", marginTop: "75px" }}>
-          <h2>Say GoodBye to Overdue Payments</h2>
-          <p style={{ textAlign: "justify" }}>MSMEpayments.com is a one-stop solution for MSMEs in India struggling with delayed payments. Established to address a burning issue that keeps companies hostage to overdue payments, MSMEpayments.com takes all the guesswork and frustration out of following up on your invoices and maintaining cash flow.</p>
-        </div>
-      </div>
-      <h1 style={{ textAlign: "center" }}>Reduce Your Financial Burden By Recovering Overdue Payments</h1>
-      <Button
-        type="primary"
-        style={{
-          margin: "0.5vw",
-          backgroundColor: "rgb(40, 52, 149)",
-          border: "none",
-        }}
-        href="https://www.msmepayments.com/signin"
-      >
-        Sign Up Now for Free
-      </Button>
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <img src="/images/image4.png" />
-        <div style={{ width: "30%", marginTop: "75px" }}>
-          <h2>Invest in your Peace of mind</h2>
-          <p style={{ textAlign: "justify" }}>Dealing with overdue payments will not only take a toll on your relationship with your clients and your mood but also sabotage your financial future. Our innovative solution adds that much-needed extra layer of security around your business, increasing your financial stability and safeguarding you from delayed payments</p>
-        </div>
 
-      </div>
-
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <div style={{ width: "30%", marginTop: "75px" }}>
-          <h2>Top 5 Reasons To Choose The Money Recovery Tool:</h2>
-          <ul>
-            <p>Maintain good relationships with clients</p>
-            <p>Gives room for more projects</p>
-            <p>Deal with pleasent and happy vendors</p>
-            <p>Automate your cash recovery system</p>
-            <p>Increase growth and profitability</p>
-          </ul>
+      <div style={{ width: "50%", margin: "auto" }}>
+        <h1>Ensure Growth. Shelter easiness. Be effortless</h1>
+        <p>We help MSMEs do their e-invoicing & accounting in such a way that it helps them in faster recovery of payments, reduce their bad debt, get instant collateral-free loans and increase their profits and cash flow.</p>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
+          <Button
+            type="primary"
+            style={{
+              margin: "auto",
+              marginTop: "1rem",
+              backgroundColor: "rgb(40, 52, 149)",
+              border: "none",
+            }}
+            href="https://www.msmepayments.com/signin"
+          >
+            Sign Up Now for Free
+          </Button>
 
         </div>
-        <img src="/images/image5.png" />
-      </div>
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <img src="/images/image6.png" />
-        <div style={{ width: "30%", marginTop: "75px" }}>
-          <h2>Cutting Edge Technology to the Rescue</h2>
-          <p style={{ textAlign: "justify" }}>Choosing MSMEpayments.com comes with a plethora of benefits that will help you avoid all the headaches of overdue payments. Our innovative AI-based Money Recovery Tool checks all the boxes and allows you to effectively deal with overdue payments without any fuss.</p>
+        <div style={{ display: "flex", marginTop: "1.25rem" }}>
+          <p style={{ textAlign: "center", fontWeight: "750" }}>Automated Financial Operation</p>
+          <p style={{ textAlign: "center", paddingLeft: "75px", fontWeight: "750" }}>Collateral Free Instant Loan</p>
+          <p style={{ textAlign: "center", paddingLeft: "75px", fontWeight: "750" }}>Get Payments Faster</p>
         </div>
       </div>
-      <h1>If You Keep Doing What You've Always Done, You'll Keep Getting What You've Always Got</h1>
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+
+      <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
         <div style={{ width: "30%", marginTop: "75px" }}>
-          <h2>Backed Up By Perfect Integration</h2>
-          <p style={{ textAlign: "justify" }}>You can easily follow up on your payments with MSMEpayments.com by perfectly integrating it into your payment system. It automatically prompts payments based on your other accounting software, making it an easy payment recovery process.
-          </p>
+          <h2>Your financial Operation shouldn't be complicated</h2>
+          <p style={{ textAlign: "justify" }}>Creating e-invoices with all regulations feels like an overwhelming process. It can cause a lot of unnecessary process. It can cause a lot of unnecessary stress. Most business are afraid of government penalties and errors. <br />Lack of working capital makes frustrations and worry to take loans. Sometimes achieving a steady cash flow seems like a far star. <br />At msmepayments.com</p>
         </div>
-        <img src="/images/image7.png" />
+        <img src="/images/image1.png" style={{ width: "450px" }} />
+      </div>
+
+      <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+        <img src="/images/image2.png" style={{ width: "250px", marginTop: "45px" }} />
+        <div style={{ width: "30%", marginTop: "75px" }}>
+          <h2>E-invoicing & Accounting Fast And Easy</h2>
+          <p style={{ textAlign: "justify" }}> Generate e-invoices with easy tips <br />Smart Validation <br />Bulk e-invoices generaion <br />Cost-effective <br />Easily trackable <br />Multiple GSTIN <br />Recurring e-invoices</p>
+        </div>
+      </div>
+
+      <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+        <div style={{ width: "30%", marginTop: "75px" }}>
+          <h2>Instant Loan With Invoice Discounting</h2>
+          <p style={{ textAlign: "justify" }}>Get a short-term loan with unpaid dues <br />Collateral free <br />Unlock fund quickly <br />Easily accessible <br />Get up to 90% of your dues <br />Get a loan in 24-72 hours</p>
+        </div>
+        <img src="/images/image3.png" style={{ width: "450px" }} />
+      </div>
+
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <img src="/images/image6.png" style={{ width: "400px", marginTop: "45px" }} />
+        <div style={{ width: "30%", marginTop: "75px" }}>
+          <h2>Money Recovery Tool</h2>
+          <p style={{ textAlign: "justify" }}>Automatic payment reminder on SMS, Emails & Calls <br />Auto sync with Tally <br />Auto-generated report <br />One-click sharing information <br />Tracking communication history to customers <br />Can access it from anywhere <br />Simple to Run <br />And has many more features....</p>
+        </div>
+      </div>
+
+      <div style={{ display: "flex", marginTop: "3.25rem" }}>
+        <img src="/images/image8.jpg" style={{ width: "200px", margin: "auto" }} /><h3 >E-invoicing With Validation</h3><br /><p>Get your e-invoices & accounting with few clicks, smart Validation to save you from errors</p>
+        <img src="/images/image9.jpg" style={{ width: "200px", margin: "auto" }} /><h3>Automatic Payment Recovery System</h3><br /><p>Through our Payment reminder tool automate your payments collection system.</p>
+        <img src="/images/image10.jpg" style={{ width: "200px", margin: "auto" }} /><h3>Get Collateral Free Instant Loan</h3><br /><p>Get loans within 24-72 hours up to 90% your of unpaid dues without paperwork</p>
       </div>
       <br />
-      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-        <Card
-          title="Innovative Tools"
-          style={{
-            width: 300,
-          }}
-        >
-          <p>With features such as reports and an ROI calculator, you can effortlessly track and be on top of various aspects such as payments and performance.</p>
-        </Card>
-        <Card
-          title="Fully Automated"
-          style={{
-            width: 300,
-          }}
-        >
-          <p>By helping MSMEs automate the invoice follow-ups through email, thus eliminating the need to manually follow up with clients or keep track of pending invoices.</p>
-        </Card>
-        <Card
-          title="Certified By DPIIT"
-          style={{
-            width: 300,
-          }}
-        >
-          <p>Certified by the Department for Promotion of Industry and Internal Trade, MSMEpayments.com is recognized as a promising startup in the business finance sector.</p>
-        </Card>
-        <br />
+      <br />
+
+      <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+        <div style={{ width: "30%", marginTop: "75px" }}>
+          <h2>We help remove the financial complexity that overwhelms you so you can focus on business expansion an enjoy your profit.</h2>
+          <p style={{ textAlign: "justify" }}>The process of making an easy financial Operation & steady working capital can be bit daunting. We understand you want an easy & smooth system that can save you cost & time. We sense you must be worried about Operation expenses. Taking your business towards continuous growth will be a great process. We have to stand with you.</p>
+          <br />
+          <div style={{ textAlign: "justify" }}>
+            <p><GoVerified /> &nbsp;NASSCOM Certified </p>
+            <p><GrCertificate />&nbsp;Startup India Registered</p>
+            <p><TbFileCertificate />&nbsp;DPIIT Certified</p>
+          </div>
+        </div>
+        <img src="/images/image5.png" style={{ width: "450px" }} />
       </div>
-      <div className="site-card-border-less-wrapper">
+
+
+      <div className="site-card-border-less-wrapper" >
         <Card
           bordered={false}
           style={{
@@ -118,7 +116,7 @@ const Homepage = () => {
             alignContent: "center",
           }}
         >
-          <h1>Our Mission</h1>
+          <h1 >Our Mission</h1>
           <p>To provide world class payment follow-up system to every MSME of the World & help them in getting timely payments.</p>
           <h1>Our Vision</h1>
           <p>Every MSME of the World is using MsmePayments.com to get paid timely.</p>
@@ -136,7 +134,50 @@ const Homepage = () => {
           </Button>
         </Card>
       </div>
-    </div>
+      <br />
+      <hr />
+      <br />
+      <div >
+        <h1 >The Fortune is in The Follow-Up</h1>
+        <p >If you are a small business or mid-business and you are worried about being able to survive in the world of the internet, we will make sure that you don't survive; you thrive.</p>
+        <Button
+          type="primary"
+          style={{
+            margin: "0.5vw",
+            backgroundColor: "rgb(40, 52, 149)",
+            border: "none",
+          }}
+
+          href="https://www.msmepayments.com/signin"
+        >
+          Sign Up Now for Free!
+        </Button>
+      </div>
+      <br />
+      <hr />
+      <br />
+      <div>
+        <div>
+          <img src="/images/logo.png" />
+          <p>Toll Free No: +917415636172</p>
+          <p>Email:<a> support@msmepayments.com</a></p>
+        </div>
+        <div>
+          <a>Home</a>
+        </div>
+        <div>
+          <h1>Our Social Networks</h1>
+          <div>
+            <AiFillTwitterSquare />
+            <AiFillFacebook />
+            <AiFillInstagram />
+            <AiFillYoutube />
+            <AiFillLinkedin />
+          </div>
+        </div>
+        <p>@2022 msmepayments.com all rights are reserved</p>
+      </div>
+    </div >
   )
 }
 
