@@ -7,6 +7,8 @@ import { AiFillLinkedin } from 'react-icons/ai';
 import { GoVerified } from 'react-icons/go';
 import { GrCertificate } from 'react-icons/gr';
 import { TbFileCertificate } from 'react-icons/tb';
+import { TiTick } from 'react-icons/ti';
+
 
 
 import "./Homepage.css"
@@ -17,9 +19,8 @@ const Homepage = () => {
       <div className="site-page-header-ghost-wrapper">
         <PageHeader
           ghost={false}
-          onBack={() => window.history.back()}
-          title="MSME Payments"
           extra={[
+            <img src='images/logo.png' style={{ width: "250px", marginRight: "900px" }} />,
             <Button key="2" href="https://www.msmepayments.com/signin">Sign In</Button>,
             <Button key="1" type="primary" href="https://www.msmepayments.com/signup">Sign Up</Button>,
           ]}
@@ -27,7 +28,7 @@ const Homepage = () => {
         </PageHeader>
       </div>
 
-      <div style={{ width: "50%", margin: "auto" }}>
+      <div style={{ width: "50%", margin: "auto", textAlign: "justify" }}>
         <h1>Ensure Growth. Shelter easiness. Be effortless</h1>
         <p>We help MSMEs do their e-invoicing & accounting in such a way that it helps them in faster recovery of payments, reduce their bad debt, get instant collateral-free loans and increase their profits and cash flow.</p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
@@ -39,7 +40,7 @@ const Homepage = () => {
               backgroundColor: "rgb(40, 52, 149)",
               border: "none",
             }}
-            href="https://www.msmepayments.com/signin"
+            href="https://www.msmepayments.com/signup"
           >
             Sign Up Now for Free
           </Button>
@@ -64,14 +65,14 @@ const Homepage = () => {
         <img src="/images/image2.png" style={{ width: "250px", marginTop: "45px" }} />
         <div style={{ width: "30%", marginTop: "75px" }}>
           <h2>E-invoicing & Accounting Fast And Easy</h2>
-          <p style={{ textAlign: "justify" }}> Generate e-invoices with easy tips <br />Smart Validation <br />Bulk e-invoices generaion <br />Cost-effective <br />Easily trackable <br />Multiple GSTIN <br />Recurring e-invoices</p>
+          <p style={{ textAlign: "justify" }}> <TiTick />Generate e-invoices with easy tips <br /><TiTick />Smart Validation <br /><TiTick />Bulk e-invoices generaion <br /><TiTick />Cost-effective <br />Easily trackable <br /><TiTick />Multiple GSTIN <br /><TiTick />Recurring e-invoices</p>
         </div>
       </div>
 
       <div style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
         <div style={{ width: "30%", marginTop: "75px" }}>
           <h2>Instant Loan With Invoice Discounting</h2>
-          <p style={{ textAlign: "justify" }}>Get a short-term loan with unpaid dues <br />Collateral free <br />Unlock fund quickly <br />Easily accessible <br />Get up to 90% of your dues <br />Get a loan in 24-72 hours</p>
+          <p style={{ textAlign: "justify" }}><TiTick />Get a short-term loan with unpaid dues <br /><TiTick />Collateral free <br /><TiTick />Unlock fund quickly <br /><TiTick />Easily accessible <br /><TiTick />Get up to 90% of your dues <br /><TiTick />Get a loan in 24-72 hours</p>
         </div>
         <img src="/images/image3.png" style={{ width: "450px" }} />
       </div>
@@ -80,14 +81,20 @@ const Homepage = () => {
         <img src="/images/image6.png" style={{ width: "400px", marginTop: "45px" }} />
         <div style={{ width: "30%", marginTop: "75px" }}>
           <h2>Money Recovery Tool</h2>
-          <p style={{ textAlign: "justify" }}>Automatic payment reminder on SMS, Emails & Calls <br />Auto sync with Tally <br />Auto-generated report <br />One-click sharing information <br />Tracking communication history to customers <br />Can access it from anywhere <br />Simple to Run <br />And has many more features....</p>
+          <p style={{ textAlign: "justify" }}><TiTick />Automatic payment reminder on SMS, Emails & Calls <br /><TiTick />Auto sync with Tally <br /><TiTick />Auto-generated report <br /><TiTick />One-click sharing information <br /><TiTick />Tracking communication history to customers <br /><TiTick />Can access it from anywhere <br /><TiTick />Simple to Run <br /><TiTick />And has many more features....</p>
         </div>
       </div>
 
-      <div style={{ display: "flex", marginTop: "3.25rem" }}>
-        <img src="/images/image8.jpg" style={{ width: "200px", margin: "auto" }} /><h3 >E-invoicing With Validation</h3><br /><p>Get your e-invoices & accounting with few clicks, smart Validation to save you from errors</p>
-        <img src="/images/image9.jpg" style={{ width: "200px", margin: "auto" }} /><h3>Automatic Payment Recovery System</h3><br /><p>Through our Payment reminder tool automate your payments collection system.</p>
-        <img src="/images/image10.jpg" style={{ width: "200px", margin: "auto" }} /><h3>Get Collateral Free Instant Loan</h3><br /><p>Get loans within 24-72 hours up to 90% your of unpaid dues without paperwork</p>
+      <div style={{ display: "flex", marginTop: "3.25rem", padding: "1rem", justifyContent: "space-evenly", textAlign: "center" }}>
+        <span style={{ display: "flex", flexDirection: "column", justifyContent: "space-evenly", width: "200px" }}>
+          <img src="/images/image8.jpg" style={{ width: "200px", margin: "auto" }} /><h3 ><br />E-invoicing With Validation</h3><br /><p>Get  e-invoices & accounting with few clicks, smart Validation saves from errors</p>
+        </span>
+        <span style={{ display: "flex", flexDirection: "column", width: "200px" }}>
+          <img src="/images/image9.jpg" style={{ width: "200px", margin: "auto" }} /><h3>Automatic Payment Recovery System</h3><br /><p>Through our Payment reminder tool automate your payments collection system.</p>
+        </span>
+        <span style={{ display: "flex", flexDirection: "column", width: "200px" }}>
+          <img src="/images/image10.jpg" style={{ width: "200px", margin: "auto" }} /><h3>Get Collateral Free Instant Loan</h3><br /><p>Get loans within 24-72 hours up to 90% your of unpaid dues without paperwork</p>
+        </span>
       </div>
       <br />
       <br />
@@ -107,7 +114,7 @@ const Homepage = () => {
       </div>
 
 
-      <div className="site-card-border-less-wrapper" >
+      <div className="site-card-border-less-wrapper" style={{ textAlign: "center" }}>
         <Card
           bordered={false}
           style={{
@@ -116,58 +123,63 @@ const Homepage = () => {
             alignContent: "center",
           }}
         >
-          <h1 >Our Mission</h1>
-          <p>To provide world class payment follow-up system to every MSME of the World & help them in getting timely payments.</p>
+          <h1>Our Mission</h1>
+          <p style={{ fontWeight: "500" }}>To provide world class payment follow-up system to every MSME of the World & help them in getting timely payments.</p>
           <h1>Our Vision</h1>
-          <p>Every MSME of the World is using MsmePayments.com to get paid timely.</p>
+          <p style={{ fontWeight: "500" }}>Every MSME of the World is using MsmePayments.com to get paid timely.</p>
           <Button
             type="primary"
             style={{
-              margin: "0.5vw",
+              margin: "0.5vw auto",
               backgroundColor: "rgb(40, 52, 149)",
               border: "none",
             }}
 
-            href="https://www.msmepayments.com/signin"
+            href="https://www.msmepayments.com/signup"
           >
             Sign Up Now for Free!
           </Button>
+
+
         </Card>
       </div>
       <br />
       <hr />
       <br />
-      <div >
-        <h1 >The Fortune is in The Follow-Up</h1>
-        <p >If you are a small business or mid-business and you are worried about being able to survive in the world of the internet, we will make sure that you don't survive; you thrive.</p>
+      <div style={{ width: "50%", margin: "auto" }}>
+        <h1 style={{textAlign: "center"}}>The Fortune is in The Follow-Up</h1>
+        <p style={{textAlign: "justify"}}>If you are a small business or mid-business and you are worried about being able to survive in the world of the internet, we will make sure that you don't survive you thrive.</p>
+        <div style={{display:"flex"}}>
+        
         <Button
           type="primary"
           style={{
-            margin: "0.5vw",
+            margin: "0.5vw auto",
             backgroundColor: "rgb(40, 52, 149)",
             border: "none",
           }}
 
-          href="https://www.msmepayments.com/signin"
+          href="https://www.msmepayments.com/signup"
         >
           Sign Up Now for Free!
         </Button>
       </div>
+        </div>
       <br />
       <hr />
       <br />
-      <div>
+      <div style={{ display: "flex", justifyContent: "space-around", alignItems: "center", padding: "1.5rem 0" }}>
         <div>
-          <img src="/images/logo.png" />
-          <p>Toll Free No: +917415636172</p>
-          <p>Email:<a> support@msmepayments.com</a></p>
+          <img src="/images/logo.png" style={{ width: "250px", marginLeft: "59px" }} />
+          <p style={{ marginLeft: "59px", marginTop: "1rem" }}>Toll Free No: +917415636172</p>
+          <p style={{ marginLeft: "59px" }}>Email:<a> support@msmepayments.com</a></p>
         </div>
         <div>
-          <a>Home</a>
+          <a style={{ marginLeft: "59px" }}>Home</a>
         </div>
         <div>
           <h1>Our Social Networks</h1>
-          <div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontSize: "40px", color: "#0c78c0" }}>
             <AiFillTwitterSquare />
             <AiFillFacebook />
             <AiFillInstagram />
@@ -175,8 +187,8 @@ const Homepage = () => {
             <AiFillLinkedin />
           </div>
         </div>
-        <p>@2022 msmepayments.com all rights are reserved</p>
       </div>
+      <p style={{ textAlign: "center", padding: "1rem 0" }}>@2022 msmepayments.com all rights are reserved</p>
     </div >
   )
 }
