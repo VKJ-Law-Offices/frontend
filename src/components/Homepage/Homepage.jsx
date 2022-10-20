@@ -39,7 +39,7 @@ const Homepage = () => {
               backgroundColor: "rgb(40, 52, 149)",
               border: "none",
             }}
-            href="https://www.msmepayments.com/signin"
+            href="https://www.msmepayments.com/signup"
           >
             Sign Up Now for Free
           </Button>
@@ -128,7 +128,7 @@ const Homepage = () => {
               border: "none",
             }}
 
-            href="https://www.msmepayments.com/signin"
+            href="https://www.msmepayments.com/signup"
           >
             Sign Up Now for Free!
           </Button>
@@ -148,7 +148,7 @@ const Homepage = () => {
             border: "none",
           }}
 
-          href="https://www.msmepayments.com/signin"
+          href="https://www.msmepayments.com/signup"
         >
           Sign Up Now for Free!
         </Button>
