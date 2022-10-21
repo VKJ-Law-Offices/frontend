@@ -28,9 +28,8 @@ const Homepage = () => {
         </PageHeader>
       </div>
 
-      <div style={{ width: "60%", margin: "auto", textAlign: "justify", padding: "95px", textAlign: "center" }}>
-        <h1>Ensure Growth. Shelter easiness. Be effortless</h1>
-        <p style={{ fontSize: "20px", fontWeight: "20" }}>We help Business Owner in faster recovery of their payments and reduce bad debts, guaranteed, through our Money Recovery & eInvoicing Tool.
+      <div style={{ width: "60%", margin: "auto", textAlign: "justify", paddingTop: "150px",paddingBottom:"80px", textAlign: "center" ,transform: "scale(1.6)"}}>
+        <p style={{ fontSize: "20px", fontWeight: "500" }}>We help Business Owner in faster recovery of their payments and reduce bad debts, guaranteed, through our Money Recovery & eInvoicing Tool.
         </p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
           <Button
@@ -69,7 +68,7 @@ const Homepage = () => {
         <img src="/images/image2.png" style={{ width: "250px", marginTop: "45px" }} />
         <div style={{ width: "30%", marginTop: "75px" }}>
           <h2>E-invoicing & Accounting Fast And Easy</h2>
-          <p style={{ textAlign: "justify" }}> <TiTick />Generate e-invoices with easy tips <br /><TiTick />Smart Validation <br /><TiTick />Bulk e-invoices generaion <br /><TiTick />Cost-effective <br />Easily trackable <br /><TiTick />Multiple GSTIN <br /><TiTick />Recurring e-invoices</p>
+          <p style={{ textAlign: "justify" }}> <TiTick />Generate e-invoices with easy tips <br /><TiTick />Smart Validation <br /><TiTick />Bulk e-invoices generaion <br /><TiTick />Cost-effective <br /><TiTick />Easily trackable <br /><TiTick />Multiple GSTIN <br /><TiTick />Recurring e-invoices</p>
         </div>
       </div>
       <br />
