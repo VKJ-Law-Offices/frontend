@@ -28,7 +28,7 @@ const Homepage = () => {
         </PageHeader>
       </div>
 
-      <div style={{ width: "60%", margin: "auto", textAlign: "justify", paddingTop: "150px",paddingBottom:"80px", textAlign: "center" ,transform: "scale(1.6)"}}>
+      <div style={{ width: "50%", margin: "auto", textAlign: "justify", paddingTop: "150px", paddingBottom: "80px", textAlign: "center", transform: "scale(1.6)" }}>
         <p style={{ fontSize: "20px", fontWeight: "500" }}>We help Business Owner in faster recovery of their payments and reduce bad debts, guaranteed, through our Money Recovery & eInvoicing Tool.
         </p>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "center", width: "100%" }}>
@@ -46,10 +46,10 @@ const Homepage = () => {
           </Button>
 
         </div>
-        <div style={{ display: "flex", marginTop: "1.25rem" }}>
+        <div style={{ display: "flex", marginTop: "1.25rem" , marginLeft: "5rem"}}>
           <p style={{ textAlign: "center", fontWeight: "750" }}> GST E-Invoicing</p>
-          <p style={{ textAlign: "center", paddingLeft: "75px", fontWeight: "750" }}>Faster Recovery (Reduce Bad Debts)</p>
-          <p style={{ textAlign: "center", paddingLeft: "75px", fontWeight: "750" }}>Instant Collateral Free Loan (Zero Security)</p>
+          <p style={{ textAlign: "center", paddingLeft: "75px", fontWeight: "750" }}>Faster Recovery <br />(Reduce Bad Debts)</p>
+          <p style={{ textAlign: "center", paddingLeft: "75px", fontWeight: "750" }}>Instant Collateral Free Loan <br />(Zero Security)</p>
         </div>
       </div>
 
